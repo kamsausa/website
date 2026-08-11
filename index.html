@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="KAMSA connects and empowers Korean American medical students nationwide through mentorship, leadership, community, and regional chapters.">
+  <meta name="theme-color" content="#ff2d55">
+  <title>KAMSA | Korean American Medical Student Association</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #f6f6fb; color: #12122b; font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    a { color: #e11d48; text-decoration: none; }
+    a:hover { color: #b8123a; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #ff2d55; outline-offset: 3px; }
+    ::selection { background: rgba(255,45,85,.18); }
+    img { display: block; max-width: 100%; }
+  </style>
+  <script src="./kamsa-map.js"></script>
+  <script src="./image-slot.js"></script>
+</helmet>
+
+<div style="background:#f6f6fb;overflow:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(246,246,251,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(18,18,43,.09)">
+    <a href="#top" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
+    <nav aria-label="Primary" style="display: flex; align-items: center; gap: 26px; width: 660px; height: 48px">
+      <a href="#about" style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3a3a5c" style-hover="color:#ff2d55">About</a>
+      <a href="#chapters" style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3a3a5c" style-hover="color:#ff2d55">Chapters</a>
+      <a href="#kmeds" style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3a3a5c" style-hover="color:#ff2d55">Advocacy</a>
+      <a href="#channels" style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3a3a5c" style-hover="color:#ff2d55">Connect</a>
+      <a href="#leadership" style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3a3a5c" style-hover="color:#ff2d55">Leadership</a>
+      <a href="https://forms.gle/wnx6NDXZj9i2xNzL9" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 999px; background: linear-gradient(135deg,#ff2d55 0%,#ff6a2b 100%); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 8px 22px -8px rgba(255,45,85,.75)" style-hover="filter:brightness(1.07)">Join us</a>
+    </nav>
+  </header>
+
+  <section id="top" style="position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:84px 32px 76px;background:radial-gradient(1100px 620px at 8% -10%, rgba(255,45,85,.22) 0%, rgba(255,45,85,0) 60%), radial-gradient(900px 560px at 92% 10%, rgba(61,90,254,.22) 0%, rgba(61,90,254,0) 62%), linear-gradient(180deg,#ffffff 0%,#f6f6fb 100%)">
+    <div style="display:flex;flex-direction:column;justify-content:center">
+      <p style="margin:0 0 22px;display:inline-flex;align-self:flex-start;padding:8px 16px;border-radius:999px;background:rgba(255,45,85,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#e11d48">Korean American Medical Student Association</p>
+      <h1 style="margin:0 0 22px;font-size:clamp(46px,5.4vw,80px);line-height:.98;letter-spacing:-.03em;font-weight:800;max-width:15ch">Empowering Korean American <span style="background:linear-gradient(120deg,#ff2d55 0%,#ff6a2b 45%,#7c3aed 100%);-webkit-background-clip:text;background-clip:text;color:transparent">medical students</span> nationwide</h1>
+      <p style="margin:0 0 36px;font-size:19px;line-height:1.55;max-width:48ch;color:#4b4b6b">Mentorship. Leadership. Community. Eleven active regional chapters, one national community, one network.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="https://forms.gle/wnx6NDXZj9i2xNzL9" target="_blank" rel="noreferrer" style="padding:17px 28px;border-radius:999px;background:linear-gradient(135deg,#ff2d55 0%,#ff6a2b 100%);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 16px 34px -14px rgba(255,45,85,.8)" style-hover="filter:brightness(1.07)">Join KAMSA</a>
+        <a href="#chapters" style="padding:17px 28px;border-radius:999px;border:1.5px solid rgba(18,18,43,.16);background:#fff;color:#12122b;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:#ff2d55;color:#e11d48">Find your chapter</a>
+      </div>
+    </div>
+    <div style="position:relative;min-height:470px;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(18,18,43,.5)">
+      <img src="assets/cover-image.jpg" alt="KAMSA members at the 2025 national conference" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+      <div style="position:absolute;inset:0;background:linear-gradient(200deg,rgba(255,45,85,.16) 0%,rgba(61,90,254,.24) 100%);mix-blend-mode:multiply"></div>
+    </div>
+  </section>
+
+  <section aria-label="KAMSA at a glance" style="padding:0 32px 72px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div style="padding:32px 30px;border-radius:22px;background:linear-gradient(150deg,#ffffff 0%,#fff2f5 100%);box-shadow:0 18px 40px -30px rgba(18,18,43,.55)">
+        <strong style="display:block;font-size:58px;line-height:1;font-weight:800;letter-spacing:-.03em;background:linear-gradient(120deg,#ff2d55,#ff6a2b);-webkit-background-clip:text;background-clip:text;color:transparent">11</strong>
+        <span style="display:block;margin-top:10px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6b6b8a">Active regional chapters</span>
+      </div>
+      <div style="padding:32px 30px;border-radius:22px;background:linear-gradient(150deg,#ffffff 0%,#f2f4ff 100%);box-shadow:0 18px 40px -30px rgba(18,18,43,.55)">
+        <strong style="display:block;font-size:58px;line-height:1;font-weight:800;letter-spacing:-.03em;background:linear-gradient(120deg,#3d5afe,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent">500+</strong>
+        <span style="display:block;margin-top:10px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6b6b8a">Members</span>
+      </div>
+      <div style="padding:32px 30px;border-radius:22px;background:linear-gradient(150deg,#ffffff 0%,#fff7ee 100%);box-shadow:0 18px 40px -30px rgba(18,18,43,.55)">
+        <strong style="display:block;font-size:58px;line-height:1;font-weight:800;letter-spacing:-.03em;background:linear-gradient(120deg,#ff6a2b,#ffb020);-webkit-background-clip:text;background-clip:text;color:transparent">1</strong>
+        <span style="display:block;margin-top:10px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6b6b8a">National community</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="padding:0 32px 84px">
+    <p style="margin:0 0 18px;font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#e11d48">Who we are</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+      <h2 style="margin:0;font-size:clamp(32px,3.6vw,50px);line-height:1.04;letter-spacing:-.025em;font-weight:800">One community for students training across the country</h2>
+      <div>
+        <p style="margin:0 0 16px;font-size:19px;line-height:1.55;font-weight:500;color:#26264a">KAMSA brings Korean American medical students together across schools, specialties, and regions so they can learn, lead, and belong.</p>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#5b5b78">Regional chapters, a national community, events, and programming keep students connected from preclinical years through residency applications and beyond.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px">
+      <article style="padding:28px 26px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#ff2d55,#ff6a2b);color:#fff;font-size:13px;font-weight:800">01</span>
+        <h3 style="margin:16px 0 8px;font-size:22px;font-weight:700;letter-spacing:-.01em">Mentorship</h3>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#5b5b78">Peer support and guidance from the wider Korean American medical community.</p>
+      </article>
+      <article style="padding:28px 26px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#3d5afe,#7c3aed);color:#fff;font-size:13px;font-weight:800">02</span>
+        <h3 style="margin:16px 0 8px;font-size:22px;font-weight:700;letter-spacing:-.01em">Leadership</h3>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#5b5b78">Chapter and national roles that build real organizational experience.</p>
+      </article>
+      <article style="padding:28px 26px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#ff6a2b,#ffb020);color:#fff;font-size:13px;font-weight:800">03</span>
+        <h3 style="margin:16px 0 8px;font-size:22px;font-weight:700;letter-spacing:-.01em">Community</h3>
+        <p style="margin:0;font-size:15px;line-height:1.65;color:#5b5b78">Shared space for connection, identity, and growth.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="kmeds" style="padding:72px 32px;background:linear-gradient(135deg,#12122b 0%,#2a1b52 45%,#5b1d3f 100%);color:#fff">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;margin-bottom:36px">
+      <div>
+        <p style="margin:0 0 16px;display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.12);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#ffb9c8">Advocacy</p>
+        <h2 style="margin:0 0 14px;font-size:clamp(34px,4.4vw,60px);line-height:1;letter-spacing:-.03em;font-weight:800">K-Meds Talk</h2>
+        <p style="margin:0;max-width:56ch;font-size:17px;line-height:1.6;color:rgba(255,255,255,.72)">Conversations with physicians, advocates, and students on the issues shaping Korean American health and medical training.</p>
+      </div>
+      <a href="https://www.youtube.com/@kamsausa" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;background:linear-gradient(135deg,#ff2d55 0%,#ff6a2b 100%);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;box-shadow:0 16px 34px -16px rgba(255,45,85,.9)" style-hover="filter:brightness(1.08)">Watch on YouTube</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <sc-for list="{{ episodes }}" as="ep" hint-placeholder-count="3">
+        <a href="https://www.youtube.com/@kamsausa" target="_blank" rel="noreferrer" style="display:block;border-radius:22px;overflow:hidden;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)" style-hover="background:rgba(255,255,255,.12)">
+          <div style="position:relative;aspect-ratio:16/9;background:#0d0d20">
+            <image-slot id="{{ ep.slotId }}" placeholder="{{ ep.slotHint }}" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+            <span style="position:absolute;left:14px;top:14px;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff">{{ ep.number }}</span>
+          </div>
+          <div style="padding:22px 22px 24px">
+            <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#ff8fa6">{{ ep.topic }}</p>
+            <h3 style="margin:0 0 8px;font-size:20px;line-height:1.25;font-weight:700;letter-spacing:-.01em;color:#fff">{{ ep.title }}</h3>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:rgba(255,255,255,.62)">{{ ep.guest }}</p>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="chapters" style="padding:84px 32px">
+    <p style="margin:0 0 18px;font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#e11d48">Regional chapters</p>
+    <h2 style="margin:0 0 14px;font-size:clamp(32px,3.6vw,50px);line-height:1.04;letter-spacing:-.025em;font-weight:800">Find your chapter</h2>
+    <p style="margin:0 0 36px;max-width:62ch;font-size:17px;line-height:1.65;color:#5b5b78">Select a marker or a row to open that chapter's page — leadership, member schools, and how to reach them.</p>
+
+    <div style="border-radius:26px;padding:26px 30px;background:linear-gradient(160deg,#ffffff 0%,#f4f5ff 100%);box-shadow:0 26px 60px -40px rgba(18,18,43,.6)">
+      <kamsa-map href-base="chapter.html#"></kamsa-map>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:40px">
+      <sc-for list="{{ chapters }}" as="ch" hint-placeholder-count="11">
+        <a href="{{ ch.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border-radius:16px;background:#fff;box-shadow:0 14px 34px -30px rgba(18,18,43,.7);color:#12122b" style-hover="background:linear-gradient(120deg,#fff1f4,#f1f3ff);color:#e11d48">
+          <span style="font-size:17px;font-weight:700;letter-spacing:-.01em">{{ ch.name }}</span>
+          <span style="font-size:16px;color:#ff2d55">→</span>
+        </a>
+      </sc-for>
+    </div>
+
+    
+  </section>
+
+  <section id="channels" style="padding:0 32px 84px">
+    <p style="margin:0 0 18px;font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#e11d48">Communication channels</p>
+    <h2 style="margin:0 0 36px;font-size:clamp(32px,3.6vw,50px);line-height:1.04;letter-spacing:-.025em;font-weight:800">Stay connected</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px">
+      <article style="padding:26px 24px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+        <img src="assets/instagram-logo.png" alt="" style="width:34px;height:34px;object-fit:contain">
+        <h3 style="margin:16px 0 8px;font-size:20px;font-weight:700;letter-spacing:-.01em">Instagram</h3>
+        <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#5b5b78">News, photos, event reminders, and chapter highlights.</p>
+        <a href="https://www.instagram.com/kamsa.usa/" target="_blank" rel="noreferrer" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">@kamsa.usa →</a>
+      </article>
+      <article style="padding:26px 24px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="width:34px;height:34px;color:#8a8aa3"><path fill="currentColor" d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A3 3 0 0 0 2.4 7.2 31 31 0 0 0 1.9 12c0 1.6.2 3.2.5 4.8a3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1c.3-1.6.5-3.2.5-4.8s-.2-3.2-.5-4.8ZM10.2 15.3V8.7L15.6 12l-5.4 3.3Z"></path></svg>
+        <h3 style="margin:16px 0 8px;font-size:20px;font-weight:700;letter-spacing:-.01em">YouTube</h3>
+        <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#5b5b78">K-Meds Talk episodes, panels, and recorded programming.</p>
+        <a href="https://www.youtube.com/@kamsausa" target="_blank" rel="noreferrer" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">@kamsausa →</a>
+      </article>
+      <article style="padding:26px 24px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+        <img src="assets/discord-logo.webp" alt="" style="width:34px;height:34px;object-fit:contain;filter:grayscale(1)">
+        <h3 style="margin:16px 0 8px;font-size:20px;font-weight:700;letter-spacing:-.01em">Discord</h3>
+        <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#5b5b78">Peer conversation and member-to-member support.</p>
+        <a href="mailto:kamsa.usa@gmail.com?subject=Discord%20invite%20request" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Request invite →</a>
+      </article>
+      <article style="padding:26px 24px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+        <img src="assets/kakao-logo.png" alt="" style="width:34px;height:34px;object-fit:contain;filter:grayscale(1)">
+        <h3 style="margin:16px 0 8px;font-size:20px;font-weight:700;letter-spacing:-.01em">Kakao</h3>
+        <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#5b5b78">Quick updates and real-time community conversation.</p>
+        <a href="https://open.kakao.com/o/gkDB69Ph" target="_blank" rel="noreferrer" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Open chat →</a>
+      </article>
+      <article style="padding:26px 24px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 34px; height: 34px; color: #e11d48; stroke: #7d7979"><rect x="2" y="4" width="20" height="16" rx="3"></rect><path d="m3 7 8.2 5.6a1.5 1.5 0 0 0 1.6 0L21 7"></path></svg>
+        <h3 style="margin:16px 0 8px;font-size:20px;font-weight:700;letter-spacing:-.01em">Email</h3>
+        <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#5b5b78">Questions, requests, or chapter updates, straight to the board.</p>
+        <a href="mailto:kamsa.usa@gmail.com" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">kamsa.usa@gmail.com →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="board" style="padding:0 32px 84px">
+    <p style="margin:0 0 18px;font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#e11d48">Leadership</p>
+    <h2 style="margin:0 0 36px;font-size:clamp(32px,3.6vw,50px);line-height:1.04;letter-spacing:-.025em;font-weight:800">Students serving students</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <sc-for list="{{ board }}" as="p" hint-placeholder-count="13">
+        <article style="padding:24px 22px;border-radius:20px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+          <p style="margin:0 0 10px;display:inline-block;padding:5px 12px;border-radius:999px;background:rgba(255,45,85,.1);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e11d48">{{ p.role }}</p>
+          <h3 style="margin:0 0 6px;font-size:20px;font-weight:700;letter-spacing:-.01em">{{ p.name }}</h3>
+          <small style="font-size:13px;line-height:1.5;color:#6b6b8a">{{ p.school }}</small>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="margin:0 32px 32px;padding:76px 44px;border-radius:32px;background:linear-gradient(135deg,#ff2d55 0%,#ff6a2b 55%,#ffb020 100%);color:#fff;box-shadow:0 40px 80px -50px rgba(255,45,85,.9)">
+    <p style="margin:0 0 18px;font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82)">Join the network</p>
+    <h2 style="margin:0 0 22px;font-size:clamp(36px,5vw,68px);line-height:1;letter-spacing:-.03em;font-weight:800;max-width:20ch">Become part of KAMSA</h2>
+    <p style="margin:0 0 34px;max-width:56ch;font-size:18px;line-height:1.6;color:rgba(255,255,255,.92)">Sign up, then reach out on Instagram, Discord, or email and we will connect you with your regional chapter.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="https://forms.gle/wnx6NDXZj9i2xNzL9" target="_blank" rel="noreferrer" style="padding:17px 28px;border-radius:999px;background:#fff;color:#e11d48;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#12122b;color:#fff">Open sign-up form</a>
+      <a href="mailto:kamsa.usa@gmail.com" style="padding:17px 28px;border-radius:999px;border:1.5px solid rgba(255,255,255,.7);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#fff;color:#e11d48">Email KAMSA</a>
+    </div>
+  </section>
+
+  <footer style="display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;padding:28px 32px">
+    <img src="assets/kamsa-logo.png" alt="KAMSA" style="width:160px;height:auto"><nav aria-label="Footer" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 617px; height: 11px">
+      <a href="#about" style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5b5b78">About</a>
+      <a href="#chapters" style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5b5b78">Chapters</a>
+      <a href="#kmeds" style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5b5b78">Advocacy</a>
+      <a href="#channels" style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5b5b78">Connect</a>
+      <a href="#board" style="font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5b5b78">Board</a>
+    </nav>
+    
+    <small style="font-size: 10px; letter-spacing: .04em; color: #6b6b8a; width: 262px; height: 15px; position: absolute; left: 389px; top: 5253px">© 2026 Korean American Medical Student Association</small>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { chapters: [], forming: [] };
+
+  componentDidMount() {
+    import("./chapters.js").then((m) => {
+      this.setState({ chapters: m.CHAPTERS, forming: m.FORMING });
+    });
+  }
+
+  renderVals() {
+    return {
+      chapters: this.state.chapters.map((c) => ({
+        name: c.name,
+        href: "chapter.html#" + c.slug,
+      })),
+      formingNames: this.state.forming.map((f) => f.name).join(" · "),
+      episodes: [
+        { slotId: "kmeds-ep-1", slotHint: "Latest episode thumbnail", number: "Latest episode", topic: "Advocacy", title: "Episode title", guest: "Guest name · Role" },
+        { slotId: "kmeds-ep-2", slotHint: "Previous episode thumbnail", number: "Episode", topic: "Advocacy", title: "Episode title", guest: "Guest name · Role" },
+        { slotId: "kmeds-ep-3", slotHint: "Previous episode thumbnail", number: "Episode", topic: "Advocacy", title: "Episode title", guest: "Guest name · Role" },
+      ],
+      board: [
+        { role: "President", name: "Solbie Choi", school: "Albert Einstein College of Medicine" },
+        { role: "President", name: "Andrew Hwang", school: "Icahn School of Medicine at Mount Sinai" },
+        { role: "Vice President", name: "Harry Park", school: "Keck School of Medicine of USC" },
+        { role: "Vice President", name: "Shane Kim", school: "Western Michigan Homer Stryker M.D. School of Medicine" },
+        { role: "Conference Chair", name: "Nathan Kim", school: "Keck School of Medicine of USC" },
+        { role: "Conference Chair", name: "Jina Park", school: "Philadelphia College of Osteopathic Medicine" },
+        { role: "Advocacy Chair", name: "Lauren Kang", school: "University of Chicago Pritzker School of Medicine" },
+        { role: "Secretary", name: "Matthew Jeon", school: "University of Minnesota Medical School" },
+        { role: "Membership Chair", name: "Yvette Sol", school: "Renaissance School of Medicine at Stony Brook" },
+        { role: "Communications Chair", name: "Ellie Choi", school: "University of Missouri–Kansas City" },
+        { role: "Outreach Chair", name: "Shiyeon Kim", school: "Baylor College of Medicine" },
+        { role: "Social Media Chair", name: "Grace Kim", school: "University of Missouri–Kansas City" },
+        { role: "Treasurer", name: "Catherine Kang", school: "Loyola University Chicago Stritch School of Medicine" },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

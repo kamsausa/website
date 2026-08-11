@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>KAMSA Regional Chapter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #f6f6fb; color: #12122b; font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    a { color: #e11d48; text-decoration: none; }
+    a:hover { color: #b8123a; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #ff2d55; outline-offset: 3px; }
+    ::selection { background: rgba(255,45,85,.18); }
+    img { display: block; max-width: 100%; }
+  </style>
+</helmet>
+
+<div style="background:#f6f6fb;min-height:100vh;overflow:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(246,246,251,.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(18,18,43,.09)">
+    <a href="index.html" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
+    <nav aria-label="Primary" style="display:flex;align-items:center;gap:26px">
+      <a href="index.html#chapters" style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3a3a5c" style-hover="color:#ff2d55">← All chapters</a>
+      <a href="index.html#kmeds" style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#3a3a5c" style-hover="color:#ff2d55">K-Meds Talk</a>
+      <a href="https://forms.gle/wnx6NDXZj9i2xNzL9" target="_blank" rel="noreferrer" style="display:inline-flex;align-items:center;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,#ff2d55 0%,#ff6a2b 100%);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 8px 22px -8px rgba(255,45,85,.75)" style-hover="filter:brightness(1.07)">Become a member</a>
+    </nav>
+  </header>
+
+  <section style="padding:76px 32px 64px;background:radial-gradient(1000px 560px at 6% -20%, rgba(255,45,85,.2) 0%, rgba(255,45,85,0) 60%), radial-gradient(880px 520px at 94% 0%, rgba(61,90,254,.2) 0%, rgba(61,90,254,0) 62%), linear-gradient(180deg,#ffffff 0%,#f6f6fb 100%)">
+    <p style="margin:0 0 20px;display:inline-flex;padding:8px 16px;border-radius:999px;background:rgba(255,45,85,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#e11d48">Regional chapter</p>
+    <h1 style="margin:0 0 34px;font-size:clamp(42px,6vw,84px);line-height:.98;font-weight:800;letter-spacing:-.03em"><span style="background:linear-gradient(120deg,#12122b 0%,#3a1d5e 55%,#e11d48 100%);-webkit-background-clip:text;background-clip:text;color:transparent">{{ chapter.name }}</span></h1>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1100px">
+      <a href="{{ mailtoChapter }}" style="padding:22px 24px;border-radius:20px;background:linear-gradient(150deg,#ffffff 0%,#fff2f5 100%);box-shadow:0 18px 44px -34px rgba(18,18,43,.6);color:#12122b" style-hover="box-shadow:0 22px 50px -30px rgba(255,45,85,.6)">
+        <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8a8aa8">Chapter email</span>
+        <strong style="display:block;margin-top:10px;font-size:16px;font-weight:600;word-break:break-word">{{ emailLabel }}</strong>
+      </a>
+      <a href="{{ instagramUrl }}" target="_blank" rel="noreferrer" style="padding:22px 24px;border-radius:20px;background:linear-gradient(150deg,#ffffff 0%,#f2f4ff 100%);box-shadow:0 18px 44px -34px rgba(18,18,43,.6);color:#12122b" style-hover="box-shadow:0 22px 50px -30px rgba(61,90,254,.6)">
+        <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8a8aa8">Instagram</span>
+        <strong style="display:block;margin-top:10px;font-size:16px;font-weight:600">{{ instagramLabel }}</strong>
+      </a>
+      <a href="{{ discordUrl }}" target="_blank" rel="noreferrer" style="padding:22px 24px;border-radius:20px;background:linear-gradient(150deg,#ffffff 0%,#fff7ee 100%);box-shadow:0 18px 44px -34px rgba(18,18,43,.6);color:#12122b" style-hover="box-shadow:0 22px 50px -30px rgba(255,106,43,.6)">
+        <span style="display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#8a8aa8">Discord</span>
+        <strong style="display:block;margin-top:10px;font-size:16px;font-weight:600">Check out channel</strong>
+      </a>
+    </div>
+  </section>
+
+  <section style="padding:76px 32px 0">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:12px">
+      <h2 style="margin:0;font-size:clamp(30px,3.4vw,46px);line-height:1.04;font-weight:800;letter-spacing:-.025em">{{ peopleHeading }}</h2>
+      <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a8aa8">{{ peopleCountLabel }}</span>
+    </div>
+    <p style="margin:0 0 36px;max-width:64ch;font-size:16px;line-height:1.65;color:#5b5b78">{{ peopleNote }}</p>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+      <sc-for list="{{ people }}" as="p" hint-placeholder-count="8">
+        <article style="display:flex;flex-direction:column;padding:24px 22px;border-radius:20px;background:#fff;box-shadow:0 18px 44px -34px rgba(18,18,43,.6)">
+          <div style="display:flex;align-items:flex-start;min-height:62px;margin-bottom:8px">
+            <p style="margin:0;padding:5px 12px;border-radius:999px;background:rgba(255,45,85,.1);font-size:10.5px;font-weight:700;letter-spacing:.14em;line-height:1.45;text-transform:uppercase;color:#e11d48">{{ p.role }}</p>
+          </div>
+          <h3 style="margin:0 0 6px;font-size:20px;font-weight:700;letter-spacing:-.01em">{{ p.name }}</h3>
+          <p style="margin:0;font-size:13px;line-height:1.55;color:#6b6b8a">{{ p.school }}</p>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:76px 32px 0">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:12px">
+      <h2 style="margin:0;font-size:clamp(30px,3.4vw,46px);line-height:1.04;font-weight:800;letter-spacing:-.025em">Member schools</h2>
+      <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a8aa8">{{ schoolCountLabel }}</span>
+    </div>
+    <p style="margin:0 0 32px;max-width:64ch;font-size:16px;line-height:1.65;color:#5b5b78">{{ schoolNote }}</p>
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:1100px">
+      <sc-for list="{{ schools }}" as="s" hint-placeholder-count="4">
+        <a href="{{ s.url }}" target="_blank" rel="noreferrer" style="display:grid;grid-template-columns:auto 1fr auto auto;gap:20px;align-items:center;padding:18px 24px;border-radius:16px;background:#fff;box-shadow:0 14px 34px -30px rgba(18,18,43,.7);color:#12122b" style-hover="background:linear-gradient(120deg,#fff1f4,#f1f3ff);color:#e11d48">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;color:#ff2d55;width:28px">{{ s.num }}</span>
+          <span style="font-size:18px;font-weight:600;line-height:1.35">{{ s.name }}</span>
+          <span style="font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8a8aa8">{{ s.city }}</span>
+          <span style="font-size:15px;color:#ff2d55">↗</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:76px 32px">
+    <h2 style="margin:0 0 28px;font-size:clamp(30px,3.4vw,46px);line-height:1.04;font-weight:800;letter-spacing:-.025em">Other chapters</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:10px">
+      <sc-for list="{{ others }}" as="o" hint-placeholder-count="10">
+        <a href="{{ o.href }}" style="padding:13px 20px;border-radius:999px;background:#fff;box-shadow:0 12px 30px -26px rgba(18,18,43,.8);font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#12122b" style-hover="background:linear-gradient(135deg,#ff2d55,#ff6a2b);color:#fff">{{ o.name }}</a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="margin:0 32px 32px;padding:64px 44px;border-radius:32px;background:linear-gradient(135deg,#ff2d55 0%,#ff6a2b 55%,#ffb020 100%);color:#fff;box-shadow:0 40px 80px -50px rgba(255,45,85,.9)">
+    <h2 style="margin:0 0 20px;font-size:clamp(32px,4.4vw,58px);line-height:1;letter-spacing:-.03em;font-weight:800;max-width:22ch">Join this chapter</h2>
+    <p style="margin:0 0 30px;max-width:56ch;font-size:18px;line-height:1.6;color:rgba(255,255,255,.92)">Sign up nationally, then email the chapter and they will add you to their roster and group chats.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="https://forms.gle/wnx6NDXZj9i2xNzL9" target="_blank" rel="noreferrer" style="padding:17px 28px;border-radius:999px;background:#fff;color:#e11d48;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#12122b;color:#fff">Open sign-up form</a>
+      <a href="{{ mailtoChapter }}" style="padding:17px 28px;border-radius:999px;border:1.5px solid rgba(255,255,255,.7);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#fff;color:#e11d48">Email the chapter</a>
+    </div>
+  </section>
+
+  <footer style="display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;padding:28px 32px">
+    <img src="assets/kamsa-logo.png" alt="KAMSA" style="width:160px;height:auto">
+    <p style="margin:0;text-align:center;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#6b6b8a">Mentorship. Leadership. Community.</p>
+    <small style="font-size:12px;letter-spacing:.04em;color:#6b6b8a">© 2026 KAMSA</small>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { chapters: [], slug: "" };
+
+  componentDidMount() {
+    this._onHash = () => this.setState({ slug: (location.hash || "").replace(/^#/, "") });
+    window.addEventListener("hashchange", this._onHash);
+    import("./chapters.js").then((m) => {
+      this.setState({ chapters: m.CHAPTERS, slug: (location.hash || "").replace(/^#/, "") });
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("hashchange", this._onHash);
+  }
+
+  renderVals() {
+    const list = this.state.chapters;
+    const c = list.find((x) => x.slug === this.state.slug) || list[0];
+    if (!c) return { people: [], schools: [], others: [] };
+
+    const hasRoster = c.roster.length > 0;
+    const people = (hasRoster ? c.roster : c.contacts).map((p) => ({
+      name: p.name,
+      role: p.role,
+      school: p.school,
+    }));
+
+    return {
+      chapter: c,
+      emailLabel: c.email || "Contact the national board",
+      mailtoChapter: "mailto:" + (c.email || "kamsa.usa@gmail.com"),
+      instagramUrl: c.instagram
+        ? "https://www.instagram.com/" + c.instagram.replace(/^@/, "") + "/"
+        : "https://www.instagram.com/kamsa.usa/",
+      instagramLabel: c.instagram || "@kamsa.usa (national)",
+      discordUrl:
+        c.discord ||
+        "mailto:" + (c.email || "kamsa.usa@gmail.com") +
+          "?subject=" + encodeURIComponent("Discord channel — " + c.name),
+      people,
+      peopleHeading: hasRoster ? "Chapter leadership" : "Chapter contacts",
+      peopleCountLabel: people.length + (people.length === 1 ? " person" : " people"),
+      peopleNote: hasRoster
+        ? "The students leading this chapter this year."
+        : "This chapter's full leadership roster has not been submitted yet. These are the contacts on file — use the chapter email above to reach them.",
+      schools: c.schools.map((s, i) => ({
+        num: String(i + 1).padStart(2, "0"),
+        name: s.name,
+        city: s.city,
+        url: s.url || "#",
+      })),
+      schoolCountLabel:
+        c.schools.length + (c.schools.length === 1 ? " school" : " schools") +
+        (c.schoolsPartial ? " on file" : ""),
+      schoolNote: c.schoolsPartial
+        ? "Partial list — built from the schools currently on file for this chapter. Email the chapter to have your school added."
+        : "Medical schools represented by this chapter.",
+      others: list
+        .filter((x) => x.slug !== c.slug)
+        .map((x) => ({ name: x.short, href: "chapter.html#" + x.slug })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

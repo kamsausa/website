@@ -1,0 +1,66 @@
+
+===== SHEET 1: Sheet1 =====
+A:Chapter Name | B:Status | C:KAMSA-Specific Email Address | D:Instagram | E:Primary Contact  | F:Secondary Contact 
+A:New York/New Jersey | B:Active | C:kamsanynj@gmail.com | D:@kamsanynj | E:minwoo.kwon@icahn.mssm.edu | F:sohee.kim@hmhn.org
+A:Georgia | B:Active | C:gakamsa@gmail.com | D:gakamsa@gmail.com | E:hyungyu.lee@emory.edu | F:hbyun@augusta.edu
+A:Southern California | B:Active | C:kamsa.crc@gmail.com | D:@kamsa.crc | E:dnathankim@gmail.com | F:songhkim@g.ucla.edu
+A:Chicago  | B:Active | C:chicagokamsa@gmail.com | D:@kamsa.chicago | E:bso1@uic.edu | F:Kevin_Han@rush.edu
+A:Texas | B:Active | C:kamsatexas@gmail.com | D:@kamsatexas | E:sara.s.koh@uth.tmc.edu  | F:nia.choi@bcm.edu
+A:North Carolina  | B:Active | C:kamsanorthcarolina@gmail.com | D:@kamsa_nc | E:nuri.park@wfusm.edu | F:patrick.cheon@wfusm.edu
+A:Michigan | B:Active | C:kamsamichigan@gmail.com | D:@kamsamichigan | E:shane.kim@wmed.edu | F:?
+A:DMV | B:Active | C:kamsadmv2026@gmail.com | D:@kamsa.dmv | E:cyk15@georgetown.edu | F:bryan.kwon@gwu.edu
+A:Pennsylvania | B:Active | C:kamsa.penn@gmail.com | D:@kamsa_penn | E:minjae.kim@pennmedicine.upenn.edu | F:jp3508@pcom.edu
+A:New England | B:Active | C:kamsanewengland@gmail.com | D:@kamsa.ne | E:SoJung.Park@umassmed.edu
+A:Ohio | B:Active | C:kamsaohio@gmail.com | D:@kamsaohio | E:byoun.2@wright.edu
+A:Alabama | B:Non-Active | C:94 | E:kyublaze@uab.edu | F:cbig@uab.edu  | G:hyolim@uab.edu
+A:Hawaii | B:Non-Active | C:102
+A:Florida | B:Non-Active | C:flkamsa@gmail.com
+A:Uniformed Services | B:Non-Active | C:kamsa.usnc@gmail.com | D:@kamsa.usnc
+
+===== SHEET 2: DMV =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 3: Southern California =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 4: Michigan =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 5: NYNJ =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 6: Chicago =====
+A:Name | B:Email Address | C:School | D:Role
+A:Billy So | B:bso1@uic.edu | C:University of Illinois at Chicago | D:Co-President
+A:Kevin Han | B:kevin_han@rush.edu | C:Rush Medical College | D:Co-President 
+A:Lauren Kang | B:lskang@uchicagomedicine.org | C:University of Chicago Pritzker School of Medicine | D:Vice President
+A:Catherine Kang | B:ckang@luc.edu | C:Loyola University Chicago Stritch School of Medicine | D:Secretary
+A:Sungki Lee | B:Sung-Ki_Lee@rush.edu | C:Rush Medical College | D:Community Outreach Chair
+A:Ava Kim | B:akim39@luc.edu | C:Loyola University Chicago Stritch School of Medicine | D:Treasurer / Loyola Representative
+A:Changhun Yang | B:cy19@uic.edu | C:University of Illinois at Chicago | D:Communications Chair
+A:Junyun Park | B:junyunp2@uic.edu | C:University of Illinois at Chicago | D:Social Chair
+A:Daniel Yoo | B:gyoo7@uic.edu | C:University of Illinois at Chicago | D:UIC Representative
+A:Andy Kim | B:akim260@uic.edu | C:University of Illinois at Chicago | D:UIC Representative
+A:Jaeson Kim | B:jaeson.kim@my.rfums.org | C:Rosalind Franklin University of Medicine and Science | D:Rosalind Franklin Representative
+A:Isabelle Kang | B:isabelle.kang@northwestern.edu | C:Northwestern University Feinberg School of Medicine | D:Northwestern Representative
+A:Joseph Yoo | B:Joseph_s_yoo@rush.edu | C:Rush Medical College | D:Rush Representative
+A:Sangjoon Lee | B:sl257@illinois.edu | C:Carle Illinois College of Medicine | D:Carle UIUC Representative
+A:Lydia Jun | B:lydia.jun@midwestern.edu | C:Midwestern University Chicago College of Osteopathic Medicine | D:Midwestern Representative
+
+===== SHEET 7: Georgia =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 8: Texas =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 9: North Carolina =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 10: Ohio =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 11: New England =====
+A:Name | B:Email Address | C:School | D:Role
+
+===== SHEET 12: Pennsylvania =====
+A:Name | B:Email Address | C:School | D:Role

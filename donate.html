@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="description" content="Support KAMSA — donate via Zelle, check, or Stripe.">
+  <meta name="theme-color" content="#0b2545">
+  <title>Give | KAMSA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #f4f6fa; color: #0b0b12; font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #c8102e; text-decoration: none; }
+    a:hover { color: #9c0c23; }
+    a:focus-visible { outline: 2px solid #c8102e; outline-offset: 3px; }
+    ::selection { background: rgba(200,16,46,.16); }
+    @media (max-width: 1024px) {
+      [data-r~="g3"] { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 760px) {
+      header, section, footer { padding-left: 18px !important; padding-right: 18px !important; }
+      [data-r~="hdr"] { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; }
+      [data-r~="hdr"] nav { width: 100%; overflow-x: auto; gap: 16px !important; scrollbar-width: none; }
+      [data-r~="hdr"] nav::-webkit-scrollbar { display: none; }
+    }
+  </style>
+</helmet>
+
+<div style="background:#f4f6fa;min-height:100vh;overflow:hidden">
+  <header data-r="hdr" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(244,246,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,37,69,.12)">
+    <a href="index.html" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
+    <nav aria-label="Primary" style="display:flex;align-items:center;gap:18px">
+      <a href="index.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">← Back to KAMSA</a>
+    </nav>
+  </header>
+
+  <section style="padding:72px 32px 20px;max-width:1000px;margin:0 auto">
+    <p style="margin:0 0 18px;display:inline-flex;padding:8px 16px;border-radius:999px;background:rgba(200,16,46,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8102e">Give</p>
+    <h1 style="margin:0 0 16px;font-size:clamp(34px,4.6vw,54px);line-height:1.02;letter-spacing:-.03em;font-weight:800;color:#0b2545">Support KAMSA</h1>
+    <p style="margin:0;max-width:64ch;font-size:16.5px;line-height:1.6;color:#4d6484">KAMSA operates under the Korean American Medical Association (KAMA). Choose whichever way works best for you.</p>
+  </section>
+
+  <section data-r="g3" style="padding:44px 32px 100px;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start">
+    <article style="padding:28px 26px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+      <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e">Option 1</p>
+      <h3 style="margin:0 0 12px;font-size:20px;font-weight:700;color:#0b2545">Zelle</h3>
+      <p style="margin:0 0 14px;font-size:14.5px;line-height:1.6;color:#4d6484">Send via Zelle to the Korean American Medical Association <em>(recipient contact to be added)</em>.</p>
+      <p style="margin:0;font-size:13px;line-height:1.7;color:#4d6484">In the memo, include your full name, contact email, and a note that the donation is designated for <strong>KAMSA</strong>.</p>
+    </article>
+    <article style="padding:28px 26px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+      <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e">Option 2</p>
+      <h3 style="margin:0 0 12px;font-size:20px;font-weight:700;color:#0b2545">Mail a check</h3>
+      <p style="margin:0 0 14px;font-size:14.5px;line-height:1.6;color:#4d6484">Payable to Korean American Medical Association, with "KAMSA" noted in the memo line.</p>
+      <address style="margin:0;font-size:14px;line-height:1.65;font-style:normal;color:#0b2545">Korean American Medical Association<br>464 Hudson Terrace, Ste. 201<br>Englewood Cliffs, NJ 07632</address>
+    </article>
+    <article style="padding:28px 26px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6);display:flex;flex-direction:column">
+      <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e">Option 3</p>
+      <h3 style="margin:0 0 12px;font-size:20px;font-weight:700;color:#0b2545">Give online</h3>
+      <p style="margin:0 0 20px;font-size:14.5px;line-height:1.6;color:#4d6484">Donate securely by card through Stripe.</p>
+      <a href="https://buy.stripe.com/6oE0047UrbkMan67sE" target="_blank" rel="noreferrer" style="margin-top:auto;align-self:flex-start;padding:15px 26px;border-radius:999px;background:linear-gradient(135deg,#c8102e 0%,#e01b2e 100%);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 16px 34px -14px rgba(200,16,46,.8)" style-hover="filter:brightness(1.08)">Donate via Stripe</a>
+    </article>
+  </section>
+
+  <footer style="border-top:1px solid rgba(11,37,69,.12);padding:28px 32px">
+    <small style="display:block;font-size:12px;letter-spacing:.04em;color:#5c7291">© 2026 Korean American Medical Student Association</small>
+  </footer>
+</div>
+
+</x-dc>
+</body>
+</html>

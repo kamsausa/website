@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="KAMSA Networking — the Jeong Exchange connects members by specialty, city, and training level.">
+  <meta name="theme-color" content="#0b2545">
+  <title>Networking | KAMSA</title>
+  <link rel="icon" href="assets/kamsa-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #f4f6fa; color: #0b0b12; font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #c8102e; text-decoration: none; }
+    a:hover { color: #9c0c23; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #c8102e; outline-offset: 3px; }
+    ::selection { background: rgba(200,16,46,.16); }
+    img { display: block; max-width: 100%; }
+    @media (max-width: 1024px) {
+      [data-r~="g3"], [data-r~="g2"] { grid-template-columns: 1fr !important; gap: 20px !important; }
+    }
+    @media (max-width: 760px) {
+      header, section, footer { padding-left: 18px !important; padding-right: 18px !important; }
+      [data-r~="hdr"] { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; }
+      [data-r~="hdr"] nav { width: 100%; overflow-x: auto; gap: 16px !important; scrollbar-width: none; }
+      [data-r~="hdr"] nav::-webkit-scrollbar { display: none; }
+    }
+  </style>
+</helmet>
+
+<div style="background:#f4f6fa;overflow:hidden">
+  <header data-r="hdr" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(244,246,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,37,69,.12)">
+    <a href="index.html" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
+    <nav aria-label="Primary" style="display:flex;align-items:center;gap:18px">
+      <a href="research.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">Research</a>
+      <a href="index.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">← Back to KAMSA</a>
+    </nav>
+  </header>
+
+  <section style="padding:76px 32px 0;max-width:1180px;margin:0 auto">
+    <p style="margin:0 0 20px;display:inline-flex;padding:8px 16px;border-radius:999px;background:rgba(200,16,46,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8102e">What we do</p>
+    <h1 style="margin:0 0 20px;font-size:clamp(38px,5.4vw,72px);line-height:1;letter-spacing:-.03em;font-weight:800;max-width:14ch;color:#0b2545">Networking</h1>
+    <p style="margin:0 0 40px;max-width:56ch;font-size:19px;line-height:1.55;color:#3d5474">Eleven regional chapters and one national network. Our flagship program puts you in the room with the specific person you're trying to reach.</p>
+    <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5c7291">The program</p>
+    <h2 style="margin:0 0 22px;font-size:clamp(32px,4.2vw,56px);line-height:1.02;letter-spacing:-.03em;font-weight:800;max-width:14ch;color:#0b2545">The KAMSA Jeong Exchange</h2>
+    <p style="margin:0 0 12px;font-size:clamp(22px,2.4vw,30px);line-height:1.25;letter-spacing:-.02em;font-weight:600;max-width:24ch;color:#c8102e"><span style="font-weight:800">정</span> means helping one another move forward.</p>
+    <p style="margin:0 0 34px;max-width:58ch;font-size:18px;line-height:1.6;color:#3d5474">An ongoing program: tell us one connection you're looking for and one thing you can offer another student. KAMSA places participants into small, intentional groups based on their goals.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="mailto:kamsa.usa@gmail.com?subject=Jeong%20Exchange%20%E2%80%94%20one%20need%2C%20one%20offer&amp;body=One%20connection%20I'm%20looking%20for%3A%0A%0AOne%20thing%20I%20can%20offer%3A%0A%0ASchool%2Fyear%3A%0ASpecialty%20interest%3A" style="padding:17px 28px;border-radius:999px;background:linear-gradient(135deg,#c8102e 0%,#e01b2e 100%);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 16px 34px -14px rgba(200,16,46,.8)" style-hover="filter:brightness(1.08)">Send your need and offer</a>
+      <a href="signup.html" style="padding:17px 28px;border-radius:999px;border:1.5px solid rgba(11,37,69,.2);background:#fff;color:#0b2545;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="border-color:#c8102e;color:#c8102e">Become a member</a>
+    </div>
+  </section>
+
+  <section style="padding:64px 32px 0;max-width:1180px;margin:0 auto">
+    <h2 style="margin:0 0 28px;font-size:clamp(26px,3vw,40px);line-height:1.04;letter-spacing:-.025em;font-weight:800;color:#0b2545">Are you looking for…</h2>
+    <div data-r="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+      <sc-for list="{{ looking }}" as="item" hint-placeholder-count="6">
+        <article style="padding:26px 24px;border-radius:20px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+          <p style="margin:0;font-size:16.5px;line-height:1.5;font-weight:600;letter-spacing:-.01em;color:#0b2545">{{ item }}</p>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:64px 32px 0;max-width:1180px;margin:0 auto">
+    <div style="padding:60px 44px;border-radius:28px;background:linear-gradient(140deg,#06152b 0%,#0b2545 48%,#5c0d1c 100%);color:#fff">
+      <p style="margin:0 0 26px;font-size:clamp(28px,3.6vw,50px);line-height:1.12;letter-spacing:-.03em;font-weight:800;max-width:18ch">No presentations. No generic advice. No random networking.</p>
+      <p style="margin:0;font-size:clamp(18px,2vw,24px);line-height:1.4;font-weight:600;color:#ffb3bd">Come with one need. Leave with one relevant connection.</p>
+    </div>
+  </section>
+
+  <section style="padding:64px 32px 0;max-width:1180px;margin:0 auto">
+    <div data-r="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="padding:34px 30px;border-radius:24px;background:linear-gradient(150deg,#ffffff 0%,#eef2f9 100%);box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <p style="margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">On the table</p>
+        <h2 style="margin:0 0 20px;font-size:26px;font-weight:800;letter-spacing:-.02em;color:#0b2545">What the network can open up</h2>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ offers }}" as="item" hint-placeholder-count="6">
+            <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;font-size:15.5px;line-height:1.55;color:#26405f"><span style="color:#5c7291;font-weight:800">·</span><span>{{ item }}</span></li>
+          </sc-for>
+        </ul>
+      </div>
+      <div style="padding:34px 30px;border-radius:24px;background:linear-gradient(150deg,#ffffff 0%,#fdf1f3 100%);box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <p style="margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e">Members only</p>
+        <h2 style="margin:0 0 20px;font-size:26px;font-weight:800;letter-spacing:-.02em;color:#0b2545">What membership adds</h2>
+        <ul style="margin:0 0 26px;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ benefits }}" as="item" hint-placeholder-count="5">
+            <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;font-size:15.5px;line-height:1.55;color:#26405f"><span style="color:#c8102e;font-weight:800">·</span><span>{{ item }}</span></li>
+          </sc-for>
+        </ul>
+        <a href="membership.html" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">All membership benefits →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:64px 32px 96px;max-width:1180px;margin:0 auto">
+    <h2 style="margin:0 0 28px;font-size:clamp(26px,3vw,40px);line-height:1.04;letter-spacing:-.025em;font-weight:800;color:#0b2545">How it works</h2>
+    <ol data-r="g3" style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+      <li style="padding:30px 28px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <span style="display:block;margin-bottom:16px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#c8102e">STEP 1</span>
+        <h3 style="margin:0 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:#0b2545">Name one need, one offer</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#4d6484">One connection you're looking for, and one thing you can give another student. Specific beats broad.</p>
+      </li>
+      <li style="padding:30px 28px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <span style="display:block;margin-bottom:16px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#c8102e">STEP 2</span>
+        <h3 style="margin:0 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:#0b2545">We place you in a small group</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#4d6484">KAMSA uses its national network to form intentional groups by specialty, city, or training level.</p>
+      </li>
+      <li style="padding:30px 28px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <span style="display:block;margin-bottom:16px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#c8102e">STEP 3</span>
+        <h3 style="margin:0 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:#0b2545">You leave with a contact</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#4d6484">Participants who consent join a post-session contact directory, and can request a mentor introduction.</p>
+      </li>
+    </ol>
+  </section>
+
+  <footer style="border-top:1px solid rgba(11,37,69,.12);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <small style="font-size:12px;letter-spacing:.04em;color:#5c7291">© 2026 Korean American Medical Student Association</small>
+    <a href="mailto:kamsa.usa@gmail.com" style="font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">kamsa.usa@gmail.com</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      looking: [
+        "Another student pursuing the same specialty",
+        "A research or case-report collaborator",
+        "Someone who has completed an away rotation at a specific institution",
+        "A connection at another medical school or city",
+        "A resident or upperclassman who has navigated what comes next",
+        "A KAMSA leadership, conference, or project opportunity",
+      ],
+      offers: [
+        "Two or three open research or case-report collaborations",
+        "Residents willing to provide a one-time application review",
+        "Students willing to discuss specific away rotations or institutions",
+        "Open KAMSA project and leadership roles",
+        "Convention abstract and presentation teams",
+        "Contacts organized by specialty, city, or training level",
+      ],
+      benefits: [
+        "Priority registration for future KAMSA sessions",
+        "A post-session contact directory, with participant permission",
+        "The ability to request a mentor introduction",
+        "Access to a private resource bank",
+        "Early notice of research, conference, and leadership opportunities",
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

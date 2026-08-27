@@ -34,11 +34,28 @@ export const CHAPTERS = [
       { url: "https://renaissance.stonybrookmedicine.edu", name: "Renaissance School of Medicine at Stony Brook University", city: "Stony Brook, NY" },
       { url: "https://rwjms.rutgers.edu", name: "Rutgers Robert Wood Johnson Medical School", city: "New Brunswick, NJ" },
     ],
-    roster: [],
-    contacts: [
-      { name: "Minwoo Kwon", role: "Chapter contact", school: "Icahn School of Medicine at Mount Sinai" },
-      { name: "Sohee Kim", role: "Chapter contact", school: "Hackensack Meridian School of Medicine" },
+    roster: [
+      { name: "Kaity Kim", role: "President", school: "Hackensack Meridian School of Medicine" },
+      { name: "Minwoo Kwon", role: "President", school: "Icahn School of Medicine at Mount Sinai" },
+      { name: "June Ahn", role: "Vice President (Social)", school: "Columbia University Vagelos College of Physicians and Surgeons" },
+      { name: "Hongshik Park", role: "Vice President (Community Service)", school: "New York Medical College" },
+      { name: "Justin Park", role: "Vice President (Membership)", school: "Rutgers New Jersey Medical School" },
+      { name: "Jiwoo Kim", role: "Secretary", school: "Rowan-Virtua School of Osteopathic Medicine" },
+      { name: "Jun Song", role: "Treasurer", school: "Icahn School of Medicine at Mount Sinai" },
+      { name: "Yvette Sol", role: "Membership Chair", school: "Renaissance School of Medicine at Stony Brook University" },
+      { name: "Eric Im", role: "Outreach / Communications Chair", school: "Hackensack Meridian School of Medicine" },
+      { name: "Solbie Choi", role: "Senior Advisor", school: "Albert Einstein College of Medicine" },
+      { name: "Emily Kim", role: "Senior Advisor", school: "New York Institute of Technology College of Osteopathic Medicine" },
+      { name: "Alex Kwon", role: "Campus Representative", school: "Columbia University Vagelos College of Physicians and Surgeons" },
+      { name: "Julie Lee", role: "Campus Representative", school: "Rutgers New Jersey Medical School" },
+      { name: "Steven Baek", role: "Campus Representative", school: "New York Medical College" },
+      { name: "Sally Park", role: "Campus Representative", school: "Rowan-Virtua School of Osteopathic Medicine" },
+      { name: "Esther Yi", role: "Campus Representative", school: "Hackensack Meridian School of Medicine" },
+      { name: "Sol Han", role: "Campus Representative", school: "Touro College of Osteopathic Medicine" },
+      { name: "Dania Jeon", role: "Campus Representative", school: "New York Institute of Technology College of Osteopathic Medicine" },
+      { name: "Edward Kim", role: "Campus Representative", school: "Weill Cornell Medicine" },
     ],
+    contacts: [],
   },
   {
     slug: "new-england",
@@ -228,10 +245,15 @@ export const CHAPTERS = [
       { url: "https://www.oakland.edu/medicine/", name: "Oakland University William Beaumont School of Medicine", city: "Rochester, MI" },
       { url: "https://www.cmich.edu/colleges/cmed", name: "Central Michigan University College of Medicine", city: "Mount Pleasant, MI" },
     ],
-    roster: [],
-    contacts: [
-      { name: "Shane Kim", role: "Chapter contact", school: "Western Michigan University Homer Stryker M.D. School of Medicine" },
+    roster: [
+      { name: "Shane Kim", role: "President", school: "Western Michigan University Homer Stryker M.D. School of Medicine" },
+      { name: "Haryoung \"Gloria\" Lee", role: "Vice President", school: "Oakland University William Beaumont School of Medicine" },
+      { name: "Edmond Lee", role: "Treasurer", school: "Oakland University William Beaumont School of Medicine" },
+      { name: "Joon Sung", role: "Secretary", school: "Oakland University William Beaumont School of Medicine" },
+      { name: "Albert Oh", role: "Outreach Chair", school: "Wayne State University School of Medicine" },
+      { name: "Amanda Yoo", role: "Advocacy Chair", school: "Michigan State University College of Human Medicine" },
     ],
+    contacts: [],
   },
   {
     slug: "chicago",
@@ -353,11 +375,13 @@ export const FORMING = [
 ];
 
 export const PARTNERS = [
-  { abbr: "APAMSA", name: "Asian Pacific American Medical Student Association", url: "https://www.apamsa.org", blurb: "National partner on advocacy, community health, and Asian American health equity programming." },
+  { abbr: "KAMA", name: "Korean American Medical Association", url: "https://www.kamausa.org", blurb: "Physician association providing mentorship, career guidance, and community for students." },
   { abbr: "Liner", name: "Liner", url: "https://getliner.com", blurb: "Supports KAMSA members' coursework and research with AI-assisted literature search and study tools." },
   { abbr: "NMDP", name: "National Marrow Donor Program", url: "https://www.nmdp.org", blurb: "Partner on donor registry drives and outreach in Korean American communities." },
-  { abbr: "KAMA", name: "Korean American Medical Association", url: "https://www.kamausa.org", blurb: "Physician association providing mentorship, career guidance, and community for students." },
   { abbr: "NATMA", name: "North American Taiwanese Medical Association", url: "https://www.natma.org", blurb: "Sister organization collaborating on cross-community programming and advocacy." },
+  { abbr: "JAANUU", name: "JAANUU", url: "https://www.jaanuu.com", blurb: "Partner offering scrubs and medical apparel discounts for KAMSA members." },
+  { abbr: "StudyRemote", name: "StudyRemote", url: "https://www.studyremote.co", blurb: "Partner supporting remote study resources and tools for medical students." },
+  { abbr: "APAMSA", name: "Asian Pacific American Medical Student Association", url: "https://www.apamsa.org", blurb: "National partner on advocacy, community health, and Asian American health equity programming." },
 ];
 
 export const bySlug = (slug) => CHAPTERS.find((c) => c.slug === slug);

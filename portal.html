@@ -3,8 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="./supabase.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -42,8 +40,7 @@
   <header data-r="hdr" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(244,246,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,37,69,.12)">
     <a href="index.html" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
     <nav aria-label="Primary" style="display:flex;align-items:center;gap:18px">
-      <a href="signup.html" id="portal-signup" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">Sign up</a>
-      <button id="portal-logout" type="button" style="display:none;border:none;background:none;padding:0;font:inherit;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f;cursor:pointer" style-hover="color:#c8102e">Log out</button>
+      <a href="signup.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">Sign up</a>
       <a href="index.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">← Back to KAMSA</a>
     </nav>
   </header>
@@ -52,19 +49,6 @@
     <p style="margin:0 0 18px;display:inline-flex;padding:8px 16px;border-radius:999px;background:rgba(200,16,46,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8102e">Members only</p>
     <h1 style="margin:0 0 16px;font-size:clamp(34px,4.6vw,54px);line-height:1.02;letter-spacing:-.03em;font-weight:800;color:#0b2545">Member Portal</h1>
     <p style="margin:0 0 8px;max-width:64ch;font-size:16.5px;line-height:1.6;color:#4d6484">Your directory of KAMSA members and partner discounts. Not a member? <a href="signup.html">Sign up here</a>.</p>
-    <div id="member-summary" style="display:none;margin-top:28px;padding:24px 26px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
-        <div>
-          <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#c8102e">Signed in</p>
-          <h2 id="member-name" style="margin:0 0 6px;font-size:24px;font-weight:800;color:#0b2545"></h2>
-          <p id="member-school" style="margin:0;font-size:14px;color:#5c7291"></p>
-        </div>
-        <div style="text-align:right">
-          <p id="member-tier" style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0b2545"></p>
-          <p id="member-chapter" style="margin:0;font-size:13px;color:#5c7291"></p>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section style="padding:36px 32px 0;max-width:1180px;margin:0 auto">
@@ -73,12 +57,6 @@
       <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">{{ directoryCountLabel }}</span>
     </div>
     <p style="margin:0 0 22px;max-width:64ch;font-size:15px;line-height:1.6;color:#4d6484">Only members who opted in during sign-up appear here.</p>
-    <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
-      <div style="margin:0 0 22px;padding:16px 18px;border-radius:14px;background:rgba(200,16,46,.08);color:#8f1024;font-size:14px;line-height:1.5">{{ error }}</div>
-    </sc-if>
-    <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
-      <p style="margin:0 0 22px;font-size:14px;color:#5c7291">Loading your member directory…</p>
-    </sc-if>
     <div data-r="g3f" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:12px">
       <label style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">Membership tier</span>
@@ -126,9 +104,6 @@
           <small style="display:block;font-size:13px;line-height:1.5;color:#5c7291">{{ m.school }}</small>
           <small style="display:block;margin-top:4px;font-size:12.5px;color:#5c7291">Class of {{ m.gradYear }} · {{ m.chapter }}</small>
           <small style="display:block;margin-top:8px;font-size:12.5px;font-weight:600;color:#26405f">{{ m.specialty }}</small>
-          <sc-if value="{{ m.linkedin }}" hint-placeholder-val="">
-            <a href="{{ m.linkedin }}" target="_blank" rel="noreferrer" style="display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">LinkedIn →</a>
-          </sc-if>
         </article>
       </sc-for>
     </div>
@@ -161,6 +136,19 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+const MEMBERS = [
+  { name: "Jiho Park", school: "Perelman School of Medicine at the University of Pennsylvania", gradYear: 2027, status: "Medical student", chapter: "Pennsylvania", specialty: "Internal Medicine" },
+  { name: "Sarah Yoon", school: "Baylor College of Medicine", gradYear: 2028, status: "Medical student", chapter: "Texas", specialty: "Pediatrics" },
+  { name: "David Chung", school: "Rutgers New Jersey Medical School", gradYear: 2026, status: "Medical student", chapter: "NY/NJ", specialty: "Orthopedic Surgery" },
+  { name: "Emily Kwon", school: "University of Michigan Medical School", gradYear: 2029, status: "Pre-medical student", chapter: "Michigan", specialty: "Undecided" },
+  { name: "Brian Lee", school: "Loyola University Chicago Stritch School of Medicine", gradYear: 2025, status: "Alumni", chapter: "Chicago", specialty: "Psychiatry" },
+];
+
+const CHAPTERS = [
+  "NY/NJ", "New England", "Pennsylvania", "DMV", "North Carolina", "Georgia",
+  "Ohio", "Michigan", "Chicago", "Texas", "SoCal",
+];
+
 const SPECIALTIES = [
   "Undecided", "Allergy & Immunology", "Anesthesiology", "Cardiology", "Child & Adolescent Psychiatry",
   "Colon & Rectal Surgery", "Critical Care Medicine", "Dermatology", "Emergency Medicine",
@@ -174,119 +162,44 @@ const SPECIALTIES = [
   "Sleep Medicine", "Sports Medicine", "Thoracic Surgery", "Urology", "Vascular Surgery",
 ];
 
-const normalize = (v) => Array.isArray(v) ? v.join(", ") : (v ?? "");
-const label = (v) => normalize(v) || "Not listed";
-const opts = (list) => [{ value: "", label: "All" }].concat(list.filter(Boolean).map((v) => ({ value: v, label: v })));
+const TIERS = ["Medical student", "Pre-medical student", "Alumni"];
+
+const opts = (list) => [{ value: "", label: "All" }].concat(list.map((v) => ({ value: v, label: v })));
+const sortedOpts = (key, all) => opts(Array.from(new Set(all.map((m) => m[key]))).sort());
 
 class Component extends DCLogic {
-  state = { members: [], chapter: "", school: "", specialty: "", tier: "", loading: true, error: "", member: null };
-
-  async onMount() {
-    await this.loadPortal();
-  }
-
-  async loadPortal() {
-    try {
-      const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
-      if (userError || !user) {
-        window.location.href = "./login.html";
-        return;
-      }
-
-      const { data: member, error: memberError } = await supabaseClient
-        .from("members")
-        .select("first_name,last_name,school_institution,graduation_year,membership_tier,membership_status,regional_chapter,specialty_interest,linkedin_profile,consent_membership_directory")
-        .eq("user_id", user.id)
-        .single();
-
-      if (memberError || !member) {
-        this.setState({ loading: false, error: "We could not find a KAMSA membership associated with this account." });
-        return;
-      }
-
-      if (String(member.membership_status || "").toLowerCase() !== "active") {
-        this.setState({ loading: false, member, error: "Your KAMSA membership is not currently active." });
-        return;
-      }
-
-      const { data: members, error: directoryError } = await supabaseClient
-        .from("member_directory")
-        .select("id,first_name,last_name,school_institution,graduation_year,membership_tier,regional_chapter,specialty_interest,linkedin_profile")
-        .order("last_name", { ascending: true })
-        .order("first_name", { ascending: true });
-
-      if (directoryError) {
-        this.setState({ loading: false, member, members: [], error: "Your account is active, but the member directory is still being configured." });
-        return;
-      }
-
-      this.setState({ loading: false, member, members: members || [], error: "" });
-
-      const summary = document.getElementById("member-summary");
-      const logout = document.getElementById("portal-logout");
-      const signup = document.getElementById("portal-signup");
-      if (summary) summary.style.display = "block";
-      if (logout) logout.style.display = "inline";
-      if (signup) signup.style.display = "none";
-
-      document.getElementById("member-name").textContent = `${member.first_name || ""} ${member.last_name || ""}`.trim();
-      document.getElementById("member-school").textContent = label(member.school_institution);
-      document.getElementById("member-tier").textContent = label(member.membership_tier);
-      document.getElementById("member-chapter").textContent = label(member.regional_chapter);
-
-      logout?.addEventListener("click", async () => {
-        await supabaseClient.auth.signOut();
-        window.location.href = "./login.html";
-      });
-    } catch (e) {
-      this.setState({ loading: false, error: "We couldn't load your member portal. Please try again." });
-    }
-  }
-
+  state = { chapter: "", school: "", specialty: "", tier: "" };
   renderVals() {
-    const { members, chapter, school, specialty, tier, loading, error, member } = this.state;
-    const filtered = members.filter((m) =>
-      (!chapter || m.regional_chapter === chapter) &&
-      (!school || m.school_institution === school) &&
-      (!specialty || normalize(m.specialty_interest) === specialty) &&
-      (!tier || m.membership_tier === tier)
+    const { chapter, school, specialty, tier } = this.state;
+    const members = MEMBERS.filter(
+      (m) =>
+        (!chapter || m.chapter === chapter) &&
+        (!school || m.school === school) &&
+        (!specialty || m.specialty === specialty) &&
+        (!tier || m.status === tier)
     );
     const set = (k) => (e) => this.setState({ [k]: e.target.value });
-    const schools = Array.from(new Set(members.map((m) => m.school_institution).filter(Boolean))).sort();
-    const chapters = Array.from(new Set(members.map((m) => m.regional_chapter).filter(Boolean))).sort();
-    const tiers = Array.from(new Set(members.map((m) => m.membership_tier).filter(Boolean))).sort();
-    const specialties = Array.from(new Set(members.map((m) => normalize(m.specialty_interest)).filter(Boolean))).sort();
-
     return {
-      members: filtered.map((m) => ({
-        name: `${m.first_name || ""} ${m.last_name || ""}`.trim(),
-        school: label(m.school_institution),
-        gradYear: m.graduation_year || "Not listed",
-        status: label(m.membership_tier),
-        chapter: label(m.regional_chapter),
-        specialty: label(m.specialty_interest),
-        linkedin: m.linkedin_profile || ""
-      })),
-      noResults: !loading && !!member && filtered.length === 0,
-      loading,
-      hasError: !!error,
-      error,
+      members,
+      noResults: members.length === 0,
       chapter, school, specialty, tier,
       setTier: set("tier"),
-      tierOptions: opts(tiers),
+      tierOptions: opts(TIERS),
       setChapter: set("chapter"),
       setSchool: set("school"),
       setSpecialty: set("specialty"),
-      chapterOptions: opts(chapters),
-      schoolOptions: opts(schools),
-      specialtyOptions: opts(specialties.length ? specialties : SPECIALTIES),
+      chapterOptions: opts(CHAPTERS),
+      schoolOptions: sortedOpts("school", MEMBERS),
+      specialtyOptions: opts(SPECIALTIES),
       anyFilter: !!(chapter || school || specialty || tier),
       clearFilters: () => this.setState({ chapter: "", school: "", specialty: "", tier: "" }),
-      directoryCountLabel: loading ? "Loading" : `${filtered.length} member${filtered.length === 1 ? "" : "s"} shown`,
-      profileStatus: member ? String(member.membership_status || "").toUpperCase() : ""
+      directoryCountLabel: members.length === MEMBERS.length
+        ? MEMBERS.length + " members shown"
+        : members.length + " of " + MEMBERS.length + " members",
     };
   }
 }
+
 </script>
 </body>
 </html>

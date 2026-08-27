@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="description" content="The KAMSA Research Network — faculty-mentored research opportunities for Korean American medical students, plus member publications.">
+  <meta name="theme-color" content="#0b2545">
+  <title>Research | KAMSA</title>
+  <link rel="icon" href="assets/kamsa-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #f4f6fa; color: #0b0b12; font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #c8102e; text-decoration: none; }
+    a:hover { color: #9c0c23; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #c8102e; outline-offset: 3px; }
+    ::selection { background: rgba(200,16,46,.16); }
+    img { display: block; max-width: 100%; }
+    summary { list-style: none; cursor: pointer; }
+    summary::-webkit-details-marker { display: none; }
+    details[open] [data-r~="chev"] { transform: rotate(180deg); }
+    @media (max-width: 1024px) {
+      [data-r~="g3"], [data-r~="g2"] { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 760px) {
+      header, section, footer { padding-left: 18px !important; padding-right: 18px !important; }
+      [data-r~="hdr"] { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; }
+      [data-r~="hdr"] nav { width: 100%; overflow-x: auto; gap: 16px !important; scrollbar-width: none; }
+      [data-r~="hdr"] nav::-webkit-scrollbar { display: none; }
+    }
+  </style>
+</helmet>
+
+<div style="background:#f4f6fa;overflow:hidden">
+  <header data-r="hdr" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(244,246,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,37,69,.12)">
+    <a href="index.html" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
+    <nav aria-label="Primary" style="display:flex;align-items:center;gap:18px">
+      <a href="networking.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">Networking</a>
+      <a href="index.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">← Back to KAMSA</a>
+    </nav>
+  </header>
+
+  <section style="padding:76px 32px 20px;max-width:1180px;margin:0 auto">
+    <p style="margin:0 0 20px;display:inline-flex;padding:8px 16px;border-radius:999px;background:rgba(200,16,46,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8102e">Research</p>
+    <h1 style="margin:0 0 20px;font-size:clamp(38px,5vw,66px);line-height:1;letter-spacing:-.03em;font-weight:800;max-width:16ch;color:#0b2545">The KAMSA Research Network</h1>
+    <p style="margin:0 0 30px;max-width:60ch;font-size:19px;line-height:1.55;color:#3d5474">Connecting KAMSA members with Korean American and Asian-heritage physician-researchers for faculty-mentored projects — with clear scopes, defined roles, and a real deliverable at the end.</p>
+    <div style="display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border-radius:999px;background:rgba(11,37,69,.06);border:1.5px solid rgba(11,37,69,.14)">
+      <span style="width:9px;height:9px;border-radius:999px;background:#c8102e"></span>
+      <span style="font-size:13.5px;font-weight:600;color:#26405f">Announcement — applications are not open yet. Watch this page and the newsletter for the intake date.</span>
+    </div>
+  </section>
+
+  <section style="padding:56px 32px 0;max-width:1180px;margin:0 auto">
+    <h2 style="margin:0 0 28px;font-size:clamp(26px,3vw,40px);line-height:1.04;letter-spacing:-.025em;font-weight:800;color:#0b2545">What the network does</h2>
+    <div data-r="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <article style="padding:30px 28px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <span style="display:block;margin-bottom:16px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#c8102e">01</span>
+        <h3 style="margin:0 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:#0b2545">Builds projects with physician-researchers</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#4d6484">We work with Korean American and other Asian-heritage researchers to develop new projects — or to open seats on projects already underway.</p>
+      </article>
+      <article style="padding:30px 28px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <span style="display:block;margin-bottom:16px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#c8102e">02</span>
+        <h3 style="margin:0 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:#0b2545">Pairs mentorship with real involvement</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#4d6484">Members join research through mentorship from faculty who are actively doing the work — not observation, but assigned tasks and named contributions.</p>
+      </article>
+      <article style="padding:30px 28px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <span style="display:block;margin-bottom:16px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#c8102e">03</span>
+        <h3 style="margin:0 0 10px;font-size:19px;font-weight:700;letter-spacing:-.01em;color:#0b2545">Forms teams around shared interests</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#4d6484">Students group by focus — specialty-based, public health, AI, quality improvement, medical education — and collaborate on faculty-mentored work.</p>
+      </article>
+    </div>
+  </section>
+
+  <section style="padding:64px 32px 0;max-width:1180px;margin:0 auto">
+    <h2 style="margin:0 0 12px;font-size:clamp(26px,3vw,40px);line-height:1.04;letter-spacing:-.025em;font-weight:800;color:#0b2545">How to get involved</h2>
+    <p style="margin:0 0 28px;max-width:62ch;font-size:16px;line-height:1.6;color:#4d6484">Two tracks. Faculty proposals are reviewed and approved by program leadership before any project opens to student applicants.</p>
+    <div data-r="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div style="padding:34px 30px;border-radius:24px;background:linear-gradient(150deg,#ffffff 0%,#fdf1f3 100%);box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <p style="margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e">For students</p>
+        <h3 style="margin:0 0 16px;font-size:23px;font-weight:800;letter-spacing:-.02em;color:#0b2545">What the application will ask</h3>
+        <ul style="margin:0 0 26px;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px">
+          <sc-for list="{{ studentApp }}" as="item" hint-placeholder-count="8">
+            <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;font-size:15px;line-height:1.5;color:#26405f"><span style="color:#c8102e;font-weight:800">·</span><span>{{ item }}</span></li>
+          </sc-for>
+        </ul>
+        <a href="mailto:kamsa.usa@gmail.com?subject=KAMSA%20Research%20Network%20%E2%80%94%20student%20interest" style="display:inline-flex;padding:16px 26px;border-radius:999px;background:linear-gradient(135deg,#c8102e 0%,#e01b2e 100%);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 16px 34px -16px rgba(200,16,46,.8)" style-hover="filter:brightness(1.08)">Get notified when intake opens</a>
+      </div>
+      <div style="padding:34px 30px;border-radius:24px;background:linear-gradient(150deg,#ffffff 0%,#eef2f9 100%);box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <p style="margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">For faculty mentors</p>
+        <h3 style="margin:0 0 16px;font-size:23px;font-weight:800;letter-spacing:-.02em;color:#0b2545">What a project proposal includes</h3>
+        <ul style="margin:0 0 26px;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px">
+          <sc-for list="{{ mentorApp }}" as="item" hint-placeholder-count="8">
+            <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;font-size:15px;line-height:1.5;color:#26405f"><span style="color:#5c7291;font-weight:800">·</span><span>{{ item }}</span></li>
+          </sc-for>
+        </ul>
+        <a href="mailto:kamsa.usa@gmail.com?subject=KAMSA%20Research%20Network%20%E2%80%94%20mentor%20project%20proposal" style="display:inline-flex;padding:16px 26px;border-radius:999px;background:#0b2545;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase" style-hover="background:#1d4a80">Propose a project</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:56px 32px 0;max-width:1180px;margin:0 auto">
+    <details style="border-radius:24px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6);overflow:hidden">
+      <summary style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px 30px">
+        <span>
+          <span style="display:block;margin-bottom:6px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e">Full detail</span>
+          <span style="display:block;font-size:22px;font-weight:800;letter-spacing:-.02em;color:#0b2545">Program policies, expectations &amp; safeguards</span>
+        </span>
+        <svg data-r="chev" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#c8102e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;transition:transform .2s ease"><path d="m6 9 6 6 6-6"></path></svg>
+      </summary>
+      <div style="padding:0 30px 34px;display:flex;flex-direction:column;gap:30px">
+        <sc-for list="{{ policies }}" as="p" hint-placeholder-count="4">
+          <div style="padding-top:26px;border-top:1px solid rgba(11,37,69,.12)">
+            <h3 style="margin:0 0 8px;font-size:18px;font-weight:700;letter-spacing:-.01em;color:#0b2545">{{ p.title }}</h3>
+            <p style="margin:0 0 16px;max-width:70ch;font-size:14.5px;line-height:1.6;color:#5c7291">{{ p.intro }}</p>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px">
+              <sc-for list="{{ p.items }}" as="item" hint-placeholder-count="5">
+                <li style="display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;font-size:15px;line-height:1.55;color:#26405f"><span style="color:#c8102e;font-weight:800">·</span><span>{{ item }}</span></li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+        <div style="padding-top:26px;border-top:1px solid rgba(11,37,69,.12)">
+          <h3 style="margin:0 0 8px;font-size:18px;font-weight:700;letter-spacing:-.01em;color:#0b2545">Success metrics</h3>
+          <p style="margin:0 0 16px;max-width:70ch;font-size:14.5px;line-height:1.6;color:#5c7291">What we track each program cycle to judge whether the network is working.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="9">
+              <span style="padding:9px 16px;border-radius:999px;background:rgba(11,37,69,.06);font-size:13.5px;font-weight:600;color:#26405f">{{ m }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="publications" style="padding:64px 32px 0;max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:12px">
+      <h2 style="margin:0;font-size:clamp(26px,3vw,40px);line-height:1.04;letter-spacing:-.025em;font-weight:800;color:#0b2545">Member publications</h2>
+      <a href="mailto:kamsa.usa@gmail.com?subject=Publication%20submission" style="font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase">Submit yours →</a>
+    </div>
+    <p style="margin:0 0 28px;max-width:62ch;font-size:16px;line-height:1.6;color:#4d6484">Work published by KAMSA members. Send us a citation and a link and we'll add it.</p>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <sc-for list="{{ publications }}" as="pub" hint-placeholder-count="1">
+        <a href="{{ pub.url }}" target="_blank" rel="noreferrer" style="display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;padding:28px 30px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6);color:inherit" style-hover="box-shadow:0 22px 50px -30px rgba(11,37,69,.7)">
+          <span style="font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e;white-space:nowrap">{{ pub.year }}</span>
+          <span>
+            <h3 style="margin:0 0 8px;font-size:19px;line-height:1.35;font-weight:700;letter-spacing:-.01em;color:#0b2545">{{ pub.title }}</h3>
+            <small style="display:block;font-size:14px;line-height:1.5;color:#26405f">{{ pub.authors }}</small>
+            <small style="display:block;margin-top:4px;font-size:13.5px;color:#5c7291">{{ pub.journal }}</small>
+            <small style="display:block;margin-top:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c8102e">Read the article →</small>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:56px 32px 96px;max-width:1180px;margin:0 auto">
+    <div style="padding:34px 30px;border-radius:24px;background:linear-gradient(150deg,#ffffff 0%,#eef2f9 100%);box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+      <p style="margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">Resources</p>
+      <h2 style="margin:0 0 10px;font-size:23px;font-weight:800;letter-spacing:-.02em;color:#0b2545">Research data</h2>
+      <p style="margin:0 0 18px;max-width:62ch;font-size:15px;line-height:1.6;color:#4d6484">Demographic and health data on Asian American, Native Hawaiian, and Pacific Islander populations — a useful starting point for projects in this space.</p>
+      <a href="https://aapidata.com/data/reports/" target="_blank" rel="noreferrer" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">AAPI Data — reports →</a>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid rgba(11,37,69,.12);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <small style="font-size:12px;letter-spacing:.04em;color:#5c7291">© 2026 Korean American Medical Student Association</small>
+    <a href="mailto:kamsa.usa@gmail.com" style="font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">kamsa.usa@gmail.com</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      studentApp: [
+        "School or institution",
+        "Curriculum vitae",
+        "Research and specialty interests",
+        "Previous research experience",
+        "Statistical or technical skills (optional)",
+        "Languages spoken",
+        "Time commitment you can hold",
+        "Research portfolio — Google Scholar, ResearchGate (optional)",
+        "Whether you'd like to serve as a team lead",
+      ],
+      mentorApp: [
+        "Project title and brief background",
+        "Research objectives and specific aims",
+        "Anticipated timeline and key milestones",
+        "Number of students needed",
+        "Student roles and responsibilities",
+        "Required or preferred prerequisite skills",
+        "Expected weekly or monthly time commitment",
+        "Anticipated deliverables — abstract, poster, white paper, manuscript",
+      ],
+      policies: [
+        {
+          title: "Student expectations",
+          intro: "Students accepted into the network agree to:",
+          items: [
+            "Commit to the time specified in their application for the full duration of the project.",
+            "Communicate regularly and promptly with their faculty mentor and research team.",
+            "Attend all required check-ins, team meetings, and program touchpoints.",
+            "Contribute actively to assigned tasks — literature review, data collection and analysis, manuscript and abstract preparation.",
+            "Uphold research ethics, data confidentiality, and professionalism at all times.",
+            "Work toward a tangible output by the end of the project period.",
+            "Provide periodic progress updates to KAMSA National leadership.",
+          ],
+        },
+        {
+          title: "Faculty mentor expectations",
+          intro: "Participating mentors agree to:",
+          items: [
+            "Provide a clear project scope, timeline, and defined roles for assigned students or teams.",
+            "Meet with mentees on an agreed cadence — biweekly or monthly — especially in the early stages.",
+            "Offer guidance on research methodology, ethical conduct, and abstract or manuscript preparation.",
+            "Support authorship or co-authorship where appropriate to the student's contribution.",
+            "Communicate promptly with program leadership about changes to scope, timeline, or availability.",
+            "Provide constructive feedback on student performance and milestone completion.",
+          ],
+        },
+        {
+          title: "Communication & check-ins",
+          intro: "Safeguards that give leadership visibility into match quality before problems go unaddressed.",
+          items: [
+            "Matched pairs and teams hold a kickoff meeting within the first two weeks of being matched.",
+            "A designated KAMSA National coordinator serves as a neutral contact — either party can raise a concern without confronting the other directly.",
+          ],
+        },
+        {
+          title: "Re-matching policy",
+          intro: "Either side can step out of a match without penalty.",
+          items: [
+            "A student or a mentor may request re-matching at any point, for any reason, by contacting KAMSA National.",
+            "No justification is required, though context is welcome and helps improve future matches.",
+            "Requests are handled confidentially and without penalty to the requester's standing in the program.",
+            "If a concern raised at check-in goes unresolved after coordinator outreach — roughly two weeks — the coordinator initiates re-matching proactively.",
+            "Patterns across multiple requests are tracked internally to inform program improvements.",
+          ],
+        },
+        {
+          title: "Exit surveys",
+          intro: "Required at the end of every match, whether the project finished or ended early.",
+          items: [
+            "Separate short surveys go to students and to faculty mentors.",
+            "They cover communication quality, whether expectations were met, overall experience, and likelihood of participating again.",
+            "Responses are used in aggregate to refine matching, expectations, and safeguards each cycle.",
+            "Individual responses stay confidential and are never used punitively against either party.",
+          ],
+        },
+      ],
+      metrics: [
+        "Students matched",
+        "Active faculty mentors",
+        "Projects launched",
+        "Abstracts submitted",
+        "Posters presented",
+        "Publications",
+        "Match completion rate",
+        "Re-matching request rate",
+        "Exit survey satisfaction",
+      ],
+      publications: [
+        {
+          year: "New",
+          title: "Financial distress among U.S. adults\u2026",
+          authors: "Soonmyung Hwang",
+          journal: "Published by Karger \u00b7 full citation to follow",
+          url: "https://karger.com/ced/article/doi/10.1159/ced/accag003/953929/Financial-distress-among-U-S-adults-with",
+        },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

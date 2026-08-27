@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KAMSA Member Portal</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase.js"></script>
+</head>
+
+<body>
+
+  <h1>KAMSA Member Portal</h1>
+
+  <div id="loading">
+    Checking your KAMSA membership...
+  </div>
+
+  <div id="portal" style="display:none;">
+    <h2 id="welcome"></h2>
+    <p>Your KAMSA membership is active.</p>
+
+    <p>
+      <strong>Institution:</strong>
+      <span id="institution"></span>
+    </p>
+
+    <p>
+      <strong>Regional Chapter:</strong>
+      <span id="chapter"></span>
+    </p>
+
+    <button id="logout">
+      Log out
+    </button>
+  </div>
+
+  <div id="denied" style="display:none;">
+    <h2>Member access unavailable</h2>
+    <p id="denied-message"></p>
+  </div>
+
+
+<script>
+
+async function loadMember() {
+
+  // Verify authenticated Supabase user
+  const {
+    data: { user },
+    error: userError
+  } = await supabaseClient.auth.getUser();
+
+
+  // No authenticated user
+  if (userError || !user) {
+    window.location.href = "./login.html";
+    return;
+  }
+
+
+  // Retrieve the member record.
+  // Your RLS policy ensures the authenticated
+  // user can only retrieve their own record.
+
+  const {
+    data: member,
+    error: memberError
+  } = await supabaseClient
+    .from("members")
+    .select("*")
+    .eq("user_id", user.id)
+    .single();
+
+
+  document.getElementById("loading").style.display = "none";
+
+
+  // No KAMSA membership record
+  if (memberError || !member) {
+
+    document.getElementById("denied").style.display = "block";
+
+    document.getElementById("denied-message").textContent =
+      "We could not find a KAMSA membership associated with this account.";
+
+    return;
+  }
+
+
+  // Membership exists but isn't active
+  if (member.membership_status !== "active") {
+
+    document.getElementById("denied").style.display = "block";
+
+    document.getElementById("denied-message").textContent =
+      "Your KAMSA membership is not currently active.";
+
+    return;
+  }
+
+
+  // Active member!
+  document.getElementById("portal").style.display = "block";
+
+  document.getElementById("welcome").textContent =
+    `Welcome, ${member.first_name}!`;
+
+  document.getElementById("institution").textContent =
+    member.school_institution || "Not listed";
+
+  document.getElementById("chapter").textContent =
+    member.regional_chapter || "Not assigned";
+}
+
+
+// Logout
+document
+  .getElementById("logout")
+  .addEventListener("click", async () => {
+
+    await supabaseClient.auth.signOut();
+
+    window.location.href = "./login.html";
+
+  });
+
+
+loadMember();
+
+</script>
+
+</body>
+</html>

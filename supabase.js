@@ -1,5 +1,9 @@
-const SUPABASE_URL = "https://eylvmfzkowythuxludkx.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_7GySnJdVM1tGkOb7DaT9Wg_FfH6IHQy";
+const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+
+if (!window.supabase) {
+  throw new Error("Supabase JS failed to load.");
+}
 
 const supabaseClient = window.supabase.createClient(
   SUPABASE_URL,

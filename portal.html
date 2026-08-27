@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <meta name="description" content="KAMSA Member Portal — directory and partner discount codes.">
+  <meta name="theme-color" content="#0b2545">
+  <title>Member Portal | KAMSA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #f4f6fa; color: #0b0b12; font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    * { box-sizing: border-box; }
+    a { color: #c8102e; text-decoration: none; }
+    a:hover { color: #9c0c23; }
+    a:focus-visible { outline: 2px solid #c8102e; outline-offset: 3px; }
+    ::selection { background: rgba(200,16,46,.16); }
+    @media (max-width: 1024px) {
+      [data-r~="g4"], [data-r~="g2p"], [data-r~="g3f"] { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+    }
+    @media (max-width: 760px) {
+      [data-r~="g3f"] { grid-template-columns: 1fr !important; }
+      header, section, footer { padding-left: 18px !important; padding-right: 18px !important; }
+      [data-r~="hdr"] { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; }
+      [data-r~="hdr"] nav { width: 100%; overflow-x: auto; gap: 16px !important; scrollbar-width: none; }
+      [data-r~="hdr"] nav::-webkit-scrollbar { display: none; }
+      [data-r~="g4"], [data-r~="g2p"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</helmet>
+
+<div style="background:#f4f6fa;min-height:100vh;overflow:hidden">
+  <header data-r="hdr" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(244,246,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,37,69,.12)">
+    <a href="index.html" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
+    <nav aria-label="Primary" style="display:flex;align-items:center;gap:18px">
+      <a href="signup.html" id="portal-signup" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">Sign up</a>
+      <button id="portal-logout" type="button" style="display:none;border:none;background:none;padding:0;font:inherit;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f;cursor:pointer" style-hover="color:#c8102e">Log out</button>
+      <a href="index.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">← Back to KAMSA</a>
+    </nav>
+  </header>
+
+  <section style="padding:72px 32px 20px;max-width:1180px;margin:0 auto">
+    <p style="margin:0 0 18px;display:inline-flex;padding:8px 16px;border-radius:999px;background:rgba(200,16,46,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8102e">Members only</p>
+    <h1 style="margin:0 0 16px;font-size:clamp(34px,4.6vw,54px);line-height:1.02;letter-spacing:-.03em;font-weight:800;color:#0b2545">Member Portal</h1>
+    <p style="margin:0 0 8px;max-width:64ch;font-size:16.5px;line-height:1.6;color:#4d6484">Your directory of KAMSA members and partner discounts. Not a member? <a href="signup.html">Sign up here</a>.</p>
+    <div id="member-summary" style="display:none;margin-top:28px;padding:24px 26px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap">
+        <div>
+          <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#c8102e">Signed in</p>
+          <h2 id="member-name" style="margin:0 0 6px;font-size:24px;font-weight:800;color:#0b2545"></h2>
+          <p id="member-school" style="margin:0;font-size:14px;color:#5c7291"></p>
+        </div>
+        <div style="text-align:right">
+          <p id="member-tier" style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0b2545"></p>
+          <p id="member-chapter" style="margin:0;font-size:13px;color:#5c7291"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:36px 32px 0;max-width:1180px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:12px">
+      <h2 style="margin:0;font-size:clamp(26px,3vw,38px);line-height:1.04;font-weight:800;color:#0b2545">Membership directory</h2>
+      <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">{{ directoryCountLabel }}</span>
+    </div>
+    <p style="margin:0 0 22px;max-width:64ch;font-size:15px;line-height:1.6;color:#4d6484">Only members who opted in during sign-up appear here.</p>
+    <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+      <div style="margin:0 0 22px;padding:16px 18px;border-radius:14px;background:rgba(200,16,46,.08);color:#8f1024;font-size:14px;line-height:1.5">{{ error }}</div>
+    </sc-if>
+    <sc-if value="{{ loading }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:0 0 22px;font-size:14px;color:#5c7291">Loading your member directory…</p>
+    </sc-if>
+    <div data-r="g3f" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:12px">
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">Membership tier</span>
+        <select value="{{ tier }}" onChange="{{ setTier }}" style="padding:13px 15px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-family:inherit;font-size:14.5px;color:#0b2545">
+          <sc-for list="{{ tierOptions }}" as="o" hint-placeholder-count="4">
+            <option value="{{ o.value }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">Regional chapter</span>
+        <select value="{{ chapter }}" onChange="{{ setChapter }}" style="padding:13px 15px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-family:inherit;font-size:14.5px;color:#0b2545">
+          <sc-for list="{{ chapterOptions }}" as="o" hint-placeholder-count="3">
+            <option value="{{ o.value }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">School</span>
+        <select value="{{ school }}" onChange="{{ setSchool }}" style="padding:13px 15px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-family:inherit;font-size:14.5px;color:#0b2545">
+          <sc-for list="{{ schoolOptions }}" as="o" hint-placeholder-count="3">
+            <option value="{{ o.value }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5c7291">Specialty interest</span>
+        <select value="{{ specialty }}" onChange="{{ setSpecialty }}" style="padding:13px 15px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-family:inherit;font-size:14.5px;color:#0b2545">
+          <sc-for list="{{ specialtyOptions }}" as="o" hint-placeholder-count="3">
+            <option value="{{ o.value }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+      </label>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;min-height:26px">
+      <sc-if value="{{ anyFilter }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ clearFilters }}" style="padding:7px 16px;border-radius:999px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-family:inherit;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#26405f;cursor:pointer" style-hover="border-color:#c8102e;color:#c8102e">Clear filters</button>
+      </sc-if>
+    </div>
+    <div data-r="g4" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+      <sc-for list="{{ members }}" as="m" hint-placeholder-count="5">
+        <article style="padding:22px;border-radius:20px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+          <p style="margin:0 0 10px;padding:5px 12px;display:inline-flex;border-radius:999px;background:rgba(200,16,46,.1);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e">{{ m.status }}</p>
+          <h3 style="margin:0 0 6px;font-size:18px;font-weight:700;letter-spacing:-.01em;color:#0b2545">{{ m.name }}</h3>
+          <small style="display:block;font-size:13px;line-height:1.5;color:#5c7291">{{ m.school }}</small>
+          <small style="display:block;margin-top:4px;font-size:12.5px;color:#5c7291">Class of {{ m.gradYear }} · {{ m.chapter }}</small>
+          <small style="display:block;margin-top:8px;font-size:12.5px;font-weight:600;color:#26405f">{{ m.specialty }}</small>
+          <sc-if value="{{ m.linkedin }}" hint-placeholder-val="">
+            <a href="{{ m.linkedin }}" target="_blank" rel="noreferrer" style="display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">LinkedIn →</a>
+          </sc-if>
+        </article>
+      </sc-for>
+    </div>
+    <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:28px 0 0;font-size:15px;color:#5c7291">No members match these filters yet.</p>
+    </sc-if>
+  </section>
+
+  <section style="padding:64px 32px 100px;max-width:1180px;margin:0 auto">
+    <h2 style="margin:0 0 12px;font-size:clamp(26px,3vw,38px);line-height:1.04;font-weight:800;color:#0b2545">Partner discount codes</h2>
+    <p style="margin:0 0 28px;max-width:64ch;font-size:15px;line-height:1.6;color:#4d6484">Member-only offers from KAMSA partners.</p>
+    <div data-r="g2p" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+      <article style="padding:26px 24px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <h3 style="margin:0 0 8px;font-size:20px;font-weight:700;letter-spacing:-.01em;color:#0b2545">JAANUU</h3>
+        <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#4d6484">30% off site-wide, plus free shipping on orders over $50 (a lower threshold for KAMSA members).</p>
+        <a href="https://www.jaanuu.com" target="_blank" rel="noreferrer" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Visit JAANUU →</a>
+      </article>
+      <article style="padding:26px 24px;border-radius:22px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6)">
+        <h3 style="margin:0 0 8px;font-size:20px;font-weight:700;letter-spacing:-.01em;color:#0b2545">StudyRemote</h3>
+        <p style="margin:0 0 14px;font-size:15px;line-height:1.6;color:#4d6484">20% off for KAMSA members with code <strong style="color:#0b2545">KAMSA20</strong>.</p>
+        <a href="https://studyremote.com/discount/KAMSA20" target="_blank" rel="noreferrer" style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Apply discount at StudyRemote →</a>
+      </article>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid rgba(11,37,69,.12);padding:28px 32px">
+    <small style="display:block;font-size:12px;letter-spacing:.04em;color:#5c7291">© 2026 Korean American Medical Student Association</small>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SPECIALTIES = [
+  "Undecided", "Allergy & Immunology", "Anesthesiology", "Cardiology", "Child & Adolescent Psychiatry",
+  "Colon & Rectal Surgery", "Critical Care Medicine", "Dermatology", "Emergency Medicine",
+  "Endocrinology", "Family Medicine", "Gastroenterology", "General Surgery", "Geriatric Medicine",
+  "Hematology & Oncology", "Infectious Disease", "Internal Medicine", "Interventional Radiology",
+  "Medical Genetics", "Nephrology", "Neurological Surgery", "Neurology", "Nuclear Medicine",
+  "Obstetrics & Gynecology", "Occupational Medicine", "Ophthalmology", "Oral & Maxillofacial Surgery",
+  "Orthopedic Surgery", "Otolaryngology (ENT)", "Pain Medicine", "Palliative Care", "Pathology",
+  "Pediatrics", "Physical Medicine & Rehabilitation", "Plastic Surgery", "Preventive Medicine",
+  "Psychiatry", "Pulmonology", "Radiation Oncology", "Radiology (Diagnostic)", "Rheumatology",
+  "Sleep Medicine", "Sports Medicine", "Thoracic Surgery", "Urology", "Vascular Surgery",
+];
+
+const normalize = (v) => Array.isArray(v) ? v.join(", ") : (v ?? "");
+const label = (v) => normalize(v) || "Not listed";
+const opts = (list) => [{ value: "", label: "All" }].concat(list.filter(Boolean).map((v) => ({ value: v, label: v })));
+
+class Component extends DCLogic {
+  state = { members: [], chapter: "", school: "", specialty: "", tier: "", loading: true, error: "", member: null };
+
+  async onMount() {
+    await this.loadPortal();
+  }
+
+  async loadPortal() {
+    try {
+      const { data: { user }, error: userError } = await supabaseClient.auth.getUser();
+      if (userError || !user) {
+        window.location.href = "./login.html";
+        return;
+      }
+
+      const { data: member, error: memberError } = await supabaseClient
+        .from("members")
+        .select("first_name,last_name,school_institution,graduation_year,membership_tier,membership_status,regional_chapter,specialty_interest,linkedin_profile,consent_membership_directory")
+        .eq("user_id", user.id)
+        .single();
+
+      if (memberError || !member) {
+        this.setState({ loading: false, error: "We could not find a KAMSA membership associated with this account." });
+        return;
+      }
+
+      if (String(member.membership_status || "").toLowerCase() !== "active") {
+        this.setState({ loading: false, member, error: "Your KAMSA membership is not currently active." });
+        return;
+      }
+
+      const { data: members, error: directoryError } = await supabaseClient
+        .from("member_directory")
+        .select("id,first_name,last_name,school_institution,graduation_year,membership_tier,regional_chapter,specialty_interest,linkedin_profile")
+        .order("last_name", { ascending: true })
+        .order("first_name", { ascending: true });
+
+      if (directoryError) {
+        this.setState({ loading: false, member, members: [], error: "Your account is active, but the member directory is still being configured." });
+        return;
+      }
+
+      this.setState({ loading: false, member, members: members || [], error: "" });
+
+      const summary = document.getElementById("member-summary");
+      const logout = document.getElementById("portal-logout");
+      const signup = document.getElementById("portal-signup");
+      if (summary) summary.style.display = "block";
+      if (logout) logout.style.display = "inline";
+      if (signup) signup.style.display = "none";
+
+      document.getElementById("member-name").textContent = `${member.first_name || ""} ${member.last_name || ""}`.trim();
+      document.getElementById("member-school").textContent = label(member.school_institution);
+      document.getElementById("member-tier").textContent = label(member.membership_tier);
+      document.getElementById("member-chapter").textContent = label(member.regional_chapter);
+
+      logout?.addEventListener("click", async () => {
+        await supabaseClient.auth.signOut();
+        window.location.href = "./login.html";
+      });
+    } catch (e) {
+      this.setState({ loading: false, error: "We couldn't load your member portal. Please try again." });
+    }
+  }
+
+  renderVals() {
+    const { members, chapter, school, specialty, tier, loading, error, member } = this.state;
+    const filtered = members.filter((m) =>
+      (!chapter || m.regional_chapter === chapter) &&
+      (!school || m.school_institution === school) &&
+      (!specialty || normalize(m.specialty_interest) === specialty) &&
+      (!tier || m.membership_tier === tier)
+    );
+    const set = (k) => (e) => this.setState({ [k]: e.target.value });
+    const schools = Array.from(new Set(members.map((m) => m.school_institution).filter(Boolean))).sort();
+    const chapters = Array.from(new Set(members.map((m) => m.regional_chapter).filter(Boolean))).sort();
+    const tiers = Array.from(new Set(members.map((m) => m.membership_tier).filter(Boolean))).sort();
+    const specialties = Array.from(new Set(members.map((m) => normalize(m.specialty_interest)).filter(Boolean))).sort();
+
+    return {
+      members: filtered.map((m) => ({
+        name: `${m.first_name || ""} ${m.last_name || ""}`.trim(),
+        school: label(m.school_institution),
+        gradYear: m.graduation_year || "Not listed",
+        status: label(m.membership_tier),
+        chapter: label(m.regional_chapter),
+        specialty: label(m.specialty_interest),
+        linkedin: m.linkedin_profile || ""
+      })),
+      noResults: !loading && !!member && filtered.length === 0,
+      loading,
+      hasError: !!error,
+      error,
+      chapter, school, specialty, tier,
+      setTier: set("tier"),
+      tierOptions: opts(tiers),
+      setChapter: set("chapter"),
+      setSchool: set("school"),
+      setSpecialty: set("specialty"),
+      chapterOptions: opts(chapters),
+      schoolOptions: opts(schools),
+      specialtyOptions: opts(specialties.length ? specialties : SPECIALTIES),
+      anyFilter: !!(chapter || school || specialty || tier),
+      clearFilters: () => this.setState({ chapter: "", school: "", specialty: "", tier: "" }),
+      directoryCountLabel: loading ? "Loading" : `${filtered.length} member${filtered.length === 1 ? "" : "s"} shown`,
+      profileStatus: member ? String(member.membership_status || "").toUpperCase() : ""
+    };
+  }
+}
+</script>
+</body>
+</html>

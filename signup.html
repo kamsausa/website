@@ -1,179 +1,330 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<meta name="description" content="Log in to KAMSA or sign up as a new member.">
+<meta name="theme-color" content="#0b2545">
+<title>Log In or Sign Up | KAMSA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase.js"></script>
+<style>
+body { margin:0; background:#f4f6fa; color:#0b0b12; font-family:Archivo,system-ui,-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+* { box-sizing:border-box; }
+a { color:#c8102e; text-decoration:none; }
+a:hover { color:#9c0c23; }
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible { outline:2px solid #c8102e; outline-offset:3px; }
+::selection { background:rgba(200,16,46,.16); }
+input,select { font-family:inherit; }
+label { display:flex; flex-direction:column; gap:8px; }
+.field-label { font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#5c7291; }
+input,select { padding:14px 16px; border-radius:12px; border:1.5px solid rgba(11,37,69,.16); background:#fff; font-size:15px; color:#0b2545; width:100%; }
+button { font-family:inherit; }
+.hidden { display:none !important; }
+.message { margin:0 0 18px; padding:14px 16px; border-radius:12px; background:#fff; border:1px solid rgba(11,37,69,.12); color:#26405f; font-size:14px; line-height:1.55; }
+.message.error { border-color:rgba(200,16,46,.3); color:#8f1125; background:#fff7f8; }
+.message.success { border-color:rgba(35,97,60,.25); color:#23613c; background:#f4fbf6; }
+@media (max-width:760px) {
+  header { padding-left:18px !important; padding-right:18px !important; }
+  section.main-section { padding-left:18px !important; padding-right:18px !important; }
+  .row2 { grid-template-columns:1fr !important; }
+}
+</style>
 </head>
 <body>
-<x-dc>
-
-<helmet>
-  <meta name="description" content="Log in to KAMSA or sign up as a new member.">
-  <meta name="theme-color" content="#0b2545">
-  <title>Log In or Sign Up | KAMSA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-  <style>
-    body { margin: 0; background: #f4f6fa; color: #0b0b12; font-family: Archivo, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
-    * { box-sizing: border-box; }
-    a { color: #c8102e; text-decoration: none; }
-    a:hover { color: #9c0c23; }
-    a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #c8102e; outline-offset: 3px; }
-    ::selection { background: rgba(200,16,46,.16); }
-    input, select { font-family: inherit; }
-    @media (max-width: 760px) {
-      header, section, footer { padding-left: 18px !important; padding-right: 18px !important; }
-      [data-r~="hdr"] { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; }
-      [data-r~="hdr"] nav { width: 100%; overflow-x: auto; gap: 16px !important; scrollbar-width: none; }
-      [data-r~="hdr"] nav::-webkit-scrollbar { display: none; }
-      [data-r~="row2"] { grid-template-columns: 1fr !important; }
-      fieldset div { grid-template-columns: 1fr !important; }
-    }
-  </style>
-</helmet>
-
 <div style="background:#f4f6fa;min-height:100vh;overflow:hidden">
-  <header data-r="hdr" style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(244,246,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,37,69,.12)">
-    <a href="index.html" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
-    <nav aria-label="Primary" style="display:flex;align-items:center;gap:18px">
-      <a href="index.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f" style-hover="color:#c8102e">← Back to KAMSA</a>
-    </nav>
-  </header>
+<header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 32px;background:rgba(244,246,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,37,69,.12)">
+  <a href="index.html" aria-label="KAMSA home" style="display:inline-flex"><img src="assets/kamsa-logo.png" alt="KAMSA" style="width:176px;height:auto"></a>
+  <nav aria-label="Primary" style="display:flex;align-items:center;gap:18px">
+    <a href="index.html" style="font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;color:#26405f">← Back to KAMSA</a>
+  </nav>
+</header>
 
-  <section style="padding:72px 32px 32px;max-width:760px;margin:0 auto">
-    <p style="margin:0 0 18px;display:inline-flex;padding:8px 16px;border-radius:999px;background:rgba(200,16,46,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8102e">{{ kicker }}</p>
-    <h1 style="margin:0 0 16px;font-size:clamp(34px,4.6vw,54px);line-height:1.02;letter-spacing:-.03em;font-weight:800;color:#0b2545">{{ heading }}</h1>
-    <p style="margin:0 0 26px;font-size:16.5px;line-height:1.6;color:#4d6484">{{ intro }}</p>
-    <div role="tablist" style="display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:rgba(11,37,69,.07)">
-      <button type="button" onClick="{{ showLogin }}" style="{{ loginTabStyle }}">Log in</button>
-      <button type="button" onClick="{{ showSignup }}" style="{{ signupTabStyle }}">Sign up</button>
+<section class="main-section" style="padding:72px 32px 32px;max-width:760px;margin:0 auto">
+  <p id="kicker" style="margin:0 0 18px;display:inline-flex;padding:8px 16px;border-radius:999px;background:rgba(200,16,46,.1);font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#c8102e">New member</p>
+  <h1 id="heading" style="margin:0 0 16px;font-size:clamp(34px,4.6vw,54px);line-height:1.02;letter-spacing:-.03em;font-weight:800;color:#0b2545">Join KAMSA</h1>
+  <p id="intro" style="margin:0 0 26px;font-size:16.5px;line-height:1.6;color:#4d6484">Tell us a bit about yourself.</p>
+  <div role="tablist" aria-label="Account actions" style="display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:rgba(11,37,69,.07)">
+    <button type="button" id="loginTab" style="padding:10px 22px;border-radius:999px;border:none;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:transparent;color:#5c7291">Log in</button>
+    <button type="button" id="signupTab" style="padding:10px 22px;border-radius:999px;border:none;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:#0b2545;color:#fff">Sign up</button>
+  </div>
+</section>
+
+<section id="content" class="main-section" style="padding:0 32px 100px;max-width:760px;margin:0 auto">
+  <div id="message" class="message hidden" role="status" aria-live="polite"></div>
+
+  <form id="loginForm" class="hidden" style="display:flex;flex-direction:column;gap:20px">
+    <label>
+      <span class="field-label">Email</span>
+      <input id="loginEmail" required type="email" autocomplete="email" placeholder="you@school.edu">
+    </label>
+    <label>
+      <span class="field-label">Password</span>
+      <input id="loginPassword" required type="password" autocomplete="current-password">
+    </label>
+    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <button id="loginButton" type="submit" style="padding:17px 30px;border-radius:999px;border:none;background:linear-gradient(135deg,#c8102e 0%,#e01b2e 100%);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 16px 34px -14px rgba(200,16,46,.8)">Log in</button>
+      <button id="forgotButton" type="button" style="padding:0;border:none;background:transparent;color:#5c7291;font-size:13.5px;font-weight:600;cursor:pointer">Forgot password?</button>
     </div>
-  </section>
+  </form>
 
-  <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ false }}">
-    <form onSubmit="{{ onLogin }}" style="padding:0 32px 100px;max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
-      <label style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">Email</span>
-        <input required="" type="email" placeholder="you@school.edu" style="padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545">
+  <form id="signupForm" style="display:flex;flex-direction:column;gap:20px">
+    <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <label>
+        <span class="field-label">First name</span>
+        <input id="firstName" required type="text" autocomplete="given-name">
       </label>
-      <label style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">Password</span>
-        <input required="" type="password" style="padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545">
+      <label>
+        <span class="field-label">Last name</span>
+        <input id="lastName" required type="text" autocomplete="family-name">
       </label>
-      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-        <button type="submit" style="padding:17px 30px;border-radius:999px;border:none;background:linear-gradient(135deg,#c8102e 0%,#e01b2e 100%);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 16px 34px -14px rgba(200,16,46,.8)" style-hover="filter:brightness(1.08)">Log in</button>
-        <a href="mailto:kamsa.usa@gmail.com?subject=Password%20help" style="font-size:13.5px;font-weight:600;color:#5c7291" style-hover="color:#c8102e">Forgot password?</a>
-      </div>
-      <p style="margin:0;font-size:14px;line-height:1.6;color:#5c7291">New here? <a href="#" onClick="{{ showSignup }}">Create an account</a>.</p>
-    </form>
-  </sc-if>
+    </div>
 
-  <sc-if value="{{ showThanks }}" hint-placeholder-val="{{ false }}">
-    <section style="padding:0 32px 100px;max-width:760px;margin:0 auto">
-      <div style="padding:48px 40px;border-radius:24px;background:#fff;box-shadow:0 18px 44px -34px rgba(11,37,69,.6);text-align:left">
-        <p style="margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c8102e">Thank you</p>
-        <h2 style="margin:0 0 12px;font-size:28px;font-weight:800;color:#0b2545">Welcome to KAMSA, {{ greetName }}.</h2>
-        <p style="margin:0;font-size:15.5px;line-height:1.6;color:#4d6484">We'll follow up by email. In the meantime, explore the <a href="portal.html">Member Portal</a>.</p>
-      </div>
-    </section>
-  </sc-if>
+    <label>
+      <span class="field-label">Email</span>
+      <input id="signupEmail" required type="email" autocomplete="email" placeholder="you@school.edu">
+    </label>
 
-  <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
-    <form onSubmit="{{ onSubmit }}" style="padding:0 32px 100px;max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
-      <div data-r="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-        <label style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">First name</span>
-          <input required="" type="text" style="padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545" value="{{ firstName }}" onChange="{{ setFirstName }}">
-        </label>
-        <label style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">Last name</span>
-          <input required="" type="text" style="padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545">
-        </label>
-      </div>
-
-      <label style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">School / institution</span>
-        <input required="" type="text" style="padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545">
+    <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <label>
+        <span class="field-label">Password</span>
+        <input id="signupPassword" required type="password" minlength="8" autocomplete="new-password" placeholder="At least 8 characters">
       </label>
+      <label>
+        <span class="field-label">Confirm password</span>
+        <input id="signupPasswordConfirm" required type="password" minlength="8" autocomplete="new-password">
+      </label>
+    </div>
 
-      <div data-r="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-        <label style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">Graduation year</span>
-          <input required="" type="number" style="padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545">
-        </label>
-        <label style="display:flex;flex-direction:column;gap:8px">
-          <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">Current status</span>
-          <select required="" style="padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545">
-            <option value="">Select one</option>
-            <option>Medical student</option>
-            <option>Pre-medical student</option>
-            <option>Alumni</option>
-          </select>
-        </label>
+    <label>
+      <span class="field-label">School / institution</span>
+      <input id="schoolInstitution" required type="text">
+    </label>
+
+    <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <label>
+        <span class="field-label">Graduation year</span>
+        <input id="graduationYear" required type="number" min="1900" max="2100">
+      </label>
+      <label>
+        <span class="field-label">Current status</span>
+        <select id="currentStatus" required>
+          <option value="">Select one</option>
+          <option value="Medical student">Medical student</option>
+          <option value="Pre-medical student">Pre-medical student</option>
+          <option value="Alumni">Alumni</option>
+        </select>
+      </label>
+    </div>
+
+    <fieldset style="margin:0;padding:0;border:none;display:flex;flex-direction:column;gap:8px">
+      <legend class="field-label" style="padding:0;margin:0 0 4px">Regional chapter</legend>
+      <p style="margin:0 0 4px;font-size:15px;line-height:1.5;color:#26405f">Would you like to be connected with a regional chapter?</p>
+      <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <label style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545;cursor:pointer"><input type="radio" name="chapterInterest" value="Yes, connect me" required style="accent-color:#c8102e;width:17px;height:17px">Yes, connect me</label>
+        <label style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545;cursor:pointer"><input type="radio" name="chapterInterest" value="Not right now" style="accent-color:#c8102e;width:17px;height:17px">Not right now</label>
       </div>
+    </fieldset>
 
-      <fieldset style="margin:0;padding:0;border:none;display:flex;flex-direction:column;gap:8px">
-        <legend style="padding:0;margin:0 0 8px;style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">Regional chapter</legend>
-        <p style="margin:0 0 4px;font-size:15px;line-height:1.5;color:#26405f">Would you like to be connected with a regional chapter?</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <label style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545;cursor:pointer" style-hover="border-color:#c8102e"><input type="radio" name="chapterInterest" style="accent-color:#c8102e;width:17px;height:17px">Yes, connect me</label>
-          <label style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545;cursor:pointer" style-hover="border-color:#c8102e"><input type="radio" name="chapterInterest" style="accent-color:#c8102e;width:17px;height:17px">Not right now</label>
-        </div>
-      </fieldset>
+    <fieldset style="margin:0;padding:0;border:none;display:flex;flex-direction:column;gap:8px">
+      <legend class="field-label" style="padding:0;margin:0 0 4px">Membership directory</legend>
+      <p style="margin:0 0 4px;font-size:15px;line-height:1.5;color:#26405f">Can we include you in the membership directory? This shares your profile and email with other consenting KAMSA members.</p>
+      <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <label style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545;cursor:pointer"><input type="radio" name="directoryOptIn" value="true" required style="accent-color:#c8102e;width:17px;height:17px">Yes, include me</label>
+        <label style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545;cursor:pointer"><input type="radio" name="directoryOptIn" value="false" style="accent-color:#c8102e;width:17px;height:17px">No, keep me private</label>
+      </div>
+    </fieldset>
 
-      <fieldset style="margin:0;padding:0;border:none;display:flex;flex-direction:column;gap:8px">
-        <legend style="padding:0;margin:0 0 8px;style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5c7291">Membership directory</legend>
-        <p style="margin:0 0 4px;font-size:15px;line-height:1.5;color:#26405f">Can we include you in the membership directory? This shares your info with other members.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <label style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545;cursor:pointer" style-hover="border-color:#c8102e"><input type="radio" name="directoryOptIn" style="accent-color:#c8102e;width:17px;height:17px">Yes, include me</label>
-          <label style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(11,37,69,.16);background:#fff;font-size:15px;color:#0b2545;cursor:pointer" style-hover="border-color:#c8102e"><input type="radio" name="directoryOptIn" style="accent-color:#c8102e;width:17px;height:17px">No, keep me private</label>
-        </div>
-      </fieldset>
+    <button id="signupButton" type="submit" style="align-self:flex-start;padding:17px 30px;border-radius:999px;border:none;background:linear-gradient(135deg,#c8102e 0%,#e01b2e 100%);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 16px 34px -14px rgba(200,16,46,.8)">Submit application</button>
+  </form>
+</section>
 
-      <button type="submit" style="align-self:flex-start;padding:17px 30px;border-radius:999px;border:none;background:linear-gradient(135deg,#c8102e 0%,#e01b2e 100%);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 16px 34px -14px rgba(200,16,46,.8)" style-hover="filter:brightness(1.08)">Submit</button>
-    </form>
-  </sc-if>
-
-  <footer style="border-top:1px solid rgba(11,37,69,.12);padding:28px 32px">
-    <small style="display:block;font-size:12px;letter-spacing:.04em;color:#5c7291">© 2026 Korean American Medical Student Association</small>
-  </footer>
+<footer style="border-top:1px solid rgba(11,37,69,.12);padding:28px 32px">
+  <small style="display:block;font-size:12px;letter-spacing:.04em;color:#5c7291">© 2026 Korean American Medical Student Association</small>
+</footer>
 </div>
 
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-const TAB = "padding:10px 22px;border-radius:999px;border:none;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;";
-const TAB_ON = TAB + "background:#0b2545;color:#fff;";
-const TAB_OFF = TAB + "background:transparent;color:#5c7291;";
+<script>
+  const loginTab = document.getElementById('loginTab');
+  const signupTab = document.getElementById('signupTab');
+  const loginForm = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
+  const message = document.getElementById('message');
+  const kicker = document.getElementById('kicker');
+  const heading = document.getElementById('heading');
+  const intro = document.getElementById('intro');
 
-class Component extends DCLogic {
-  state = { mode: "signup", submitted: false, firstName: "" };
-  renderVals() {
-    const login = this.state.mode === "login";
-    const set = (mode) => (e) => { if (e) e.preventDefault(); this.setState({ mode, submitted: false }); };
-    return {
-      isLogin: login,
-      showThanks: !login && this.state.submitted,
-      showForm: !login && !this.state.submitted,
-      kicker: login ? "Member login" : "New member",
-      heading: login ? "Welcome back" : "Join KAMSA",
-      intro: login
-        ? "Sign in to reach the member directory and partner discounts."
-        : "Tell us a bit about yourself.",
-      loginTabStyle: login ? TAB_ON : TAB_OFF,
-      signupTabStyle: login ? TAB_OFF : TAB_ON,
-      showLogin: set("login"),
-      showSignup: set("signup"),
-      firstName: this.state.firstName,
-      greetName: this.state.firstName || "friend",
-      setFirstName: (e) => this.setState({ firstName: e.target.value }),
-      onSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
-      onLogin: (e) => { e.preventDefault(); },
-    };
+  function setMode(mode) {
+    const isLogin = mode === 'login';
+    loginForm.classList.toggle('hidden', !isLogin);
+    signupForm.classList.toggle('hidden', isLogin);
+    loginTab.style.background = isLogin ? '#0b2545' : 'transparent';
+    loginTab.style.color = isLogin ? '#fff' : '#5c7291';
+    signupTab.style.background = isLogin ? 'transparent' : '#0b2545';
+    signupTab.style.color = isLogin ? '#5c7291' : '#fff';
+    kicker.textContent = isLogin ? 'Member login' : 'New member';
+    heading.textContent = isLogin ? 'Welcome back' : 'Join KAMSA';
+    intro.textContent = isLogin
+      ? 'Sign in to reach the member directory and partner discounts.'
+      : 'Tell us a bit about yourself.';
+    clearMessage();
   }
-}
 
+  function showMessage(text, type = '') {
+    message.textContent = text;
+    message.className = 'message' + (type ? ' ' + type : '');
+    message.classList.remove('hidden');
+  }
+
+  function clearMessage() {
+    message.textContent = '';
+    message.className = 'message hidden';
+  }
+
+  function getChapterInterest() {
+    return document.querySelector('input[name="chapterInterest"]:checked')?.value || null;
+  }
+
+  function getDirectoryConsent() {
+    const value = document.querySelector('input[name="directoryOptIn"]:checked')?.value;
+    return value === 'true';
+  }
+
+  loginTab.addEventListener('click', () => setMode('login'));
+  signupTab.addEventListener('click', () => setMode('signup'));
+
+  document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearMessage();
+    const button = document.getElementById('loginButton');
+    button.disabled = true;
+    button.textContent = 'Logging in...';
+
+    try {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      window.location.href = './portal.html';
+    } catch (error) {
+      showMessage(error.message || 'Unable to log in.', 'error');
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Log in';
+    }
+  });
+
+  document.getElementById('forgotButton').addEventListener('click', async () => {
+    clearMessage();
+    const email = document.getElementById('loginEmail').value.trim();
+    if (!email) {
+      showMessage('Enter your email address first, then click Forgot password.', 'error');
+      return;
+    }
+
+    try {
+      const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://kamsaus.org/signup.html?mode=login'
+      });
+
+      if (error) throw error;
+
+      showMessage(
+        'Password reset instructions have been sent if this email is associated with a KAMSA account.',
+        'success'
+      );
+    } catch (error) {
+      showMessage(
+        error.message || 'Unable to send password reset instructions.',
+        'error'
+      );
+    }
+  });
+
+  document.getElementById('signupForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearMessage();
+
+    const button = document.getElementById('signupButton');
+    button.disabled = true;
+    button.textContent = 'Submitting...';
+
+    try {
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const password = document.getElementById('signupPassword').value;
+      const confirmPassword = document.getElementById('signupPasswordConfirm').value;
+      const schoolInstitution = document.getElementById('schoolInstitution').value.trim();
+      const graduationYear = Number(document.getElementById('graduationYear').value);
+      const currentStatus = document.getElementById('currentStatus').value;
+      const chapterInterest = getChapterInterest();
+      const directoryConsent = getDirectoryConsent();
+
+      if (password !== confirmPassword) {
+        throw new Error('Passwords do not match.');
+      }
+
+      if (password.length < 8) {
+        throw new Error('Password must be at least 8 characters.');
+      }
+
+      if (!Number.isInteger(graduationYear)) {
+        throw new Error('Please enter a valid graduation year.');
+      }
+
+      const { data, error } = await supabaseClient.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: 'https://kamsaus.org/verify.html',
+          data: {
+            first_name: firstName,
+            last_name: lastName,
+            school_institution: schoolInstitution,
+            graduation_year: graduationYear,
+            current_status: currentStatus,
+            chapter_interest: chapterInterest,
+            directory_consent: directoryConsent,
+            membership_tier: 'Standard'
+          }
+        }
+      });
+
+      if (error) throw error;
+
+      if (!data.user) {
+        throw new Error('Your account could not be created. Please try again.');
+      }
+
+      showMessage(
+        'Application submitted. Please check your email and confirm your email address. Your KAMSA application will remain pending until reviewed by an administrator.',
+        'success'
+      );
+
+      signupForm.reset();
+
+    } catch (error) {
+      showMessage(
+        error.message || 'Unable to submit your application.',
+        'error'
+      );
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Submit application';
+    }
+  });
+
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get('mode') === 'login') {
+    setMode('login');
+  } else {
+    setMode('signup');
+  }
 </script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+<!-- Paste into Supabase → Authentication → Emails → Confirm signup. Subject: Confirm your KAMSA email -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6fa;padding:32px 12px;font-family:Arial,Helvetica,sans-serif">
+  <tr><td align="center">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;padding:36px 32px">
+      <tr><td>
+        <p style="margin:0 0 6px;font-size:12px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;color:#c8102e">Korean American Medical Student Association</p>
+        <h1 style="margin:0 0 18px;font-size:26px;line-height:1.2;color:#0b2545">Confirm your email</h1>
+        <p style="margin:0 0 14px;font-size:16px;line-height:1.6;color:#26405f">Hi {{ .Data.first_name }},</p>
+        <p style="margin:0 0 26px;font-size:16px;line-height:1.6;color:#26405f">Thanks for joining KAMSA. Confirm your email address, then you&#39;ll set up your member profile. It takes about two minutes.</p>
+        <p style="margin:0 0 28px">
+          <a href="{{ .SiteURL }}/verify.html?token_hash={{ .TokenHash }}&amp;type=email"
+             style="display:inline-block;padding:15px 28px;border-radius:999px;background:#c8102e;color:#ffffff;font-size:14px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;text-decoration:none">Confirm my email</a>
+        </p>
+        <p style="margin:0 0 8px;font-size:13px;line-height:1.6;color:#5c7291">This link expires in 24 hours and can be used once.</p>
+        <p style="margin:0;font-size:13px;line-height:1.6;color:#5c7291">If you didn&#39;t create a KAMSA account, you can ignore this email.</p>
+      </td></tr>
+    </table>
+    <p style="margin:18px 0 0;font-size:12px;color:#8193ab">KAMSA · kamsa.usa@gmail.com</p>
+  </td></tr>
+</table>
